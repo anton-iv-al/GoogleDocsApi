@@ -20,7 +20,7 @@ namespace TranslationsDocGen
             _sheet = sheet;
         }
 
-        public IList<IList<object>> _values;
+        private IList<IList<object>> _values;
         public IList<IList<object>> Values()
         {
             if (_values == null)

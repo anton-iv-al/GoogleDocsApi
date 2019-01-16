@@ -43,5 +43,29 @@ namespace TranslationsDocGen
                 ApplicationName = "Awesome Name",
             });
         }
+
+        public static string CellValue(this IList<object> row, int column)
+        {
+            if (row.Count <= column)
+            {
+                return "";
+            }
+            else
+            {
+                return row[column] as string;
+            }
+        }
+
+        public static string CellValue(this IList<IList<object>> sheetValues, int row, int column)
+        {
+            if (sheetValues.Count <= row)
+            {
+                return "";
+            }
+            else
+            {
+                return sheetValues[row].CellValue(column);
+            }
+        }
     }
 }

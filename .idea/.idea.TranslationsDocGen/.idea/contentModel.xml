@@ -15,6 +15,7 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="SheetWrapper.cs" t="Include" />
+        <e p="SocialInfiniteSheetsHelper.cs" t="Include" />
         <e p="SpreadsheetAdapter.cs" t="Include" />
         <e p="TranslationsDocGen.csproj" t="IncludeRecursive" />
       </e>
