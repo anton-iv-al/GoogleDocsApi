@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\tools\TranslationsDocGen" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="TranslationsDocGen" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="credentials.json" t="Include" />
+        <e p="GoogleSheetsHelper.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="SheetWrapper.cs" t="Include" />
+        <e p="SpreadsheetAdapter.cs" t="Include" />
+        <e p="TranslationsDocGen.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="TranslationsDocGen.sln" t="IncludeFlat" />
+    </e>
+    <e p="C:\Users\anton\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_TranslationsDocGen.-1754970544.00" t="ExcludeRecursive" />
+  </component>
+</project>
