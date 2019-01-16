@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
@@ -15,14 +16,39 @@ namespace TranslationsDocGen
             _service = service;
             _spreadsheetId = spreadsheetId;
         }
-        
+
+        private IEnumerable<SheetWrapper> _sheetsCache;
         public IEnumerable<SheetWrapper> Sheets()
         {
-            return _service.Spreadsheets
-                .Get(_spreadsheetId)
-                .Execute()
-                .Sheets
-                .Select(sheet => new SheetWrapper(_service, _spreadsheetId, sheet));
+            if (_sheetsCache == null)
+            {
+                _sheetsCache = _service.Spreadsheets
+                    .Get(_spreadsheetId)
+                    .Execute()
+                    .Sheets
+                    .Select(sheet => new SheetWrapper(_service, _spreadsheetId, sheet));
+            }
+
+            return _sheetsCache;
+        }
+        
+        public void WriteToConsole()
+        {
+            foreach (var sheet in Sheets())
+            {
+                Console.WriteLine(sheet.Sheet.Properties.Title);
+                
+                foreach (IList<object> row in sheet.Values())
+                {
+                    foreach (string cell in row)
+                    {
+                        Console.Write(cell + ", ");
+                    }
+                    Console.WriteLine();
+                }
+                
+                Console.WriteLine();
+            }
         }
     }
 }

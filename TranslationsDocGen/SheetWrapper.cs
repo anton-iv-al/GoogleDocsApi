@@ -19,14 +19,20 @@ namespace TranslationsDocGen
             _spreadsheetId = spreadsheetId;
             _sheet = sheet;
         }
-        
+
+        public IList<IList<object>> _values;
         public IList<IList<object>> Values()
         {
+            if (_values == null)
+            {
 ////            String range = "Class Data!A2:E";
-            return _service.Spreadsheets.Values
-                .Get(_spreadsheetId, _sheet.Properties.Title)
-                .Execute()
-                .Values;
+                _values = _service.Spreadsheets.Values
+                    .Get(_spreadsheetId, _sheet.Properties.Title)
+                    .Execute()
+                    .Values;
+            }
+
+            return _values;
         }
     }
 }
