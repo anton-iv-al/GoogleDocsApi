@@ -161,7 +161,13 @@ namespace TranslationsDocGen
                     Title = sheet.Title(),
                     Values = sheet.RowsWithoutLocale(locale, 2)
                 })
+                .Where(s => s.Values.Count > 2)
                 .ToList();
+
+            foreach (var sheetData in newSheetsData)
+            {
+                Console.WriteLine($"New sheet = {sheetData.Title}, rows count = {sheetData.Values.Count}"); //TODO: log
+            }
             
             return service.UploadSpreadsheet(newSpreadsheetTitle, newSheetsData);
         }
@@ -214,6 +220,10 @@ namespace TranslationsDocGen
                     int rowIndexTo = RowIndexByKey(sheetTo, key);
                     if (rowIndexTo >= 0)
                     {
+                        if (String.IsNullOrWhiteSpace(sheetTo.CellValue(rowIndexTo, localeColumnTo)))
+                        {
+                            Console.WriteLine($"Copy to empty sheetTo = {sheetTo.Title()}, key = {key}");    //TODO: log
+                        }
                         res.Add(sheetTo.UpdateCellRequest(
                             value: rowFrom.CellValue(localeColumnFrom), 
                             row: rowIndexTo, 
@@ -222,6 +232,8 @@ namespace TranslationsDocGen
                     }
                 }
             }
+            
+            Console.WriteLine($"Copying {res.Count} keys, sheetTo = {sheetTo.Title()}"); //TODO: log
 
             return res;
         }
@@ -232,6 +244,8 @@ namespace TranslationsDocGen
             int localeColumnFrom = LocaleColumn(sheetFrom, locale);
             int ruColumnFrom = LocaleColumn(sheetFrom, "ru_RU");
             
+            Console.WriteLine($"Copying {itemsFrom.Count} items, sheetTo = {sheetTo.Title()}"); //TODO: log
+            
             return itemsFrom
                 .SelectMany(item => CopyItemLocale(item, sheetTo, locale, localeColumnFrom, ruColumnFrom))
                 .ToList();
@@ -240,6 +254,12 @@ namespace TranslationsDocGen
         private static List<Request> CopyItemLocale(LocalizationItem item, SheetAdapter sheetTo, string locale, int localeColumnFrom, int ruColumnFrom)
         {
             int localeColumnTo = LocaleColumn(sheetTo, locale);
+            int itemToRowIndex = RowIndexByKey(sheetTo, item.ItemName);
+            
+            if (String.IsNullOrWhiteSpace(sheetTo.CellValue(itemToRowIndex + 1, localeColumnTo)))
+            {
+                Console.WriteLine($"Copy to empty sheetTo = {sheetTo.Title()}, itemName = {item.ItemName}"); //TODO: log
+            }
             
             bool localeFromEmpty(IList<object> row) => String.IsNullOrWhiteSpace(row.CellValue(localeColumnFrom));
             bool ruFromEmpty(IList<object> row) => String.IsNullOrWhiteSpace(row.CellValue(ruColumnFrom));
@@ -248,7 +268,7 @@ namespace TranslationsDocGen
                 .Where(row => !localeFromEmpty(row) && !ruFromEmpty(row))    //TODO: no checking itemTo
                 .Select((row, i) => sheetTo.UpdateCellRequest(
                     value: row.CellValue(localeColumnFrom), 
-                    row: RowIndexByKey(sheetTo, item.ItemName) + 1 + i, 
+                    row: itemToRowIndex + 1 + i, 
                     column: localeColumnTo
                 ))
                 .ToList();
