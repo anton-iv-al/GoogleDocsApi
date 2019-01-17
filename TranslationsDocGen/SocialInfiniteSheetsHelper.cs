@@ -88,25 +88,23 @@ namespace TranslationsDocGen
             var items = ItemList(values);
             
             return items
-                .Where(item => item.Skip(1).Any(
+                .Where(item => item.Rows.Any(
                     row => !String.IsNullOrWhiteSpace(row.CellValue(ruColumn)) &&
                            String.IsNullOrWhiteSpace(row.CellValue(localeColumn))
                 ))
-                .SelectMany(i => i)
+                .SelectMany(i => i.RowsWithName())
                 .ToList();
-        
-                
         }
 
-        private static List<IList<IList<object>>> ItemList(IEnumerable<IList<object>> values)
+        private static List<LocalizationItem> ItemList(IEnumerable<IList<object>> values)
         {
-            var res = new List<IList<IList<object>>>();
+            var res = new List<LocalizationItem>();
             
-            IList<IList<object>> curItem = null;
+            LocalizationItem curItem = null;
             
             void TryAddCurItem()
             {
-                if (curItem != null && curItem.Count > 1)
+                if (curItem != null && curItem.Rows.Count > 0)
                 {
                     res.Add(curItem);
                 }
@@ -126,13 +124,12 @@ namespace TranslationsDocGen
                 
                 if (!firstEmpty())
                 {
-                    curItem = new List<IList<object>>();
-                    curItem.Add(row);
+                    curItem = new LocalizationItem(row.CellValue(0));
                 }
                 
                 if (curItem != null && !secondEmpty())
                 {
-                    curItem.Add(row);
+                    curItem.Rows.Add(row);
                 }
             }
             
