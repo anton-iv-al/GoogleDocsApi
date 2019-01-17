@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 
 namespace TranslationsDocGen
@@ -34,6 +35,7 @@ namespace TranslationsDocGen
 
             var res = new List<IList<object>>();
             res.Add(sheet.Values().First());
+            res.Add(new List<object>());
 
             bool prevWithLocale = false;
             foreach (IList<object> row in sheet.Values().Skip(1))
@@ -57,6 +59,21 @@ namespace TranslationsDocGen
             }
 
             return res;
+        }
+
+        public static SpreadsheetAdapter UploadMissingLocaleSpreadsheet(this SheetsService service, string originalSpreadsheetId, string locale, string newSpreadsheetTitle)
+        {
+            var spreadsheet = service.DownloadSpredsheet(originalSpreadsheetId);
+
+            var newSheetsData = spreadsheet.Sheets()
+                .Select(sheet => new SheetData()
+                {
+                    Title = sheet.Title(),
+                    Values = sheet.RowsWithoutLocale(locale, 2)
+                })
+                .ToList();
+            
+            return service.UploadSpreadsheet(newSpreadsheetTitle, newSheetsData);
         }
     }
 }

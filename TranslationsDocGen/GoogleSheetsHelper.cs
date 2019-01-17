@@ -110,6 +110,7 @@ namespace TranslationsDocGen
                         Values = row
                             .Select(cell => new CellData()
                             {
+                                UserEnteredFormat = new CellFormat(){WrapStrategy = "WRAP"},
                                 UserEnteredValue = new ExtendedValue()
                                 {
                                     StringValue = (cell as string) ?? cell.ToString()
