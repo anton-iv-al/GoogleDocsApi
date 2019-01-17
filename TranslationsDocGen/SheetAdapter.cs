@@ -41,7 +41,7 @@ namespace TranslationsDocGen
             return GoogleSheetsHelper.UpdateRequest(values, Sheet.Properties.SheetId.Value, startRow, startColumn);
         }
 
-        public Request UpdateCellRequest(string value, int row, int column)
+        public Request UpdateCellRequest(string value, int row, int column) 
         {
             var values = new List<IList<object>>()
             {
