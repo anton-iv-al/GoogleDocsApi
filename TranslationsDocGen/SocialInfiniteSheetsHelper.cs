@@ -256,6 +256,8 @@ namespace TranslationsDocGen
             int localeColumnTo = LocaleColumn(sheetTo, locale);
             int itemToRowIndex = RowIndexByKey(sheetTo, item.ItemName);
             
+            if(itemToRowIndex < 0) return new List<Request>();
+            
             if (String.IsNullOrWhiteSpace(sheetTo.CellValue(itemToRowIndex + 1, localeColumnTo)))
             {
                 Console.WriteLine($"Copy to empty sheetTo = {sheetTo.Title()}, itemName = {item.ItemName}"); //TODO: log
@@ -288,7 +290,7 @@ namespace TranslationsDocGen
 
             return _rowIndexByKeyCache[sheet].ContainsKey(key)
                 ? _rowIndexByKeyCache[sheet][key]
-                : -1;
+                : -100;
         }
     }
 }

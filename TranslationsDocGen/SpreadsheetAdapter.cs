@@ -45,7 +45,7 @@ namespace TranslationsDocGen
         }
         
         private Dictionary<string, List<SheetAdapter>> _sheetsByTitleCache;
-        public List<SheetAdapter> SheetsByTitle(string title)
+        public List<SheetAdapter> SheetsByTitle(string title)        //TODO: Title is unique
         {
             if (_sheetsByTitleCache == null)
             {
