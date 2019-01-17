@@ -29,7 +29,8 @@ namespace TranslationsDocGen
 
         public static IList<IList<object>> RowsWithoutLocale(this SheetAdapter sheet, string locale, int separateRowsCount)
         {
-            int column = sheet.LocaleColumn(locale);
+            int localeColumn = sheet.LocaleColumn(locale);
+            int ruColumn = sheet.LocaleColumn("ru_RU");
             
             var res = new List<IList<object>>();
             res.Add(sheet.Values().First());
@@ -38,13 +39,13 @@ namespace TranslationsDocGen
             if (IsItemsSheet(sheet))
             {
                 res = res
-                    .Concat(RowsWithoutLocaleItems(sheet.Values().Skip(1), column))
+                    .Concat(RowsWithoutLocaleItems(sheet.Values().Skip(1), localeColumn, ruColumn))
                     .ToList();
             }
             else
             {
                 res = res
-                    .Concat(RowsWithoutLocaleText(sheet.Values().Skip(1), column, separateRowsCount))
+                    .Concat(RowsWithoutLocaleText(sheet.Values().Skip(1), localeColumn, separateRowsCount))
                     .ToList();
             }
 
@@ -82,13 +83,14 @@ namespace TranslationsDocGen
             return res;
         }
 
-        private static IList<IList<object>> RowsWithoutLocaleItems(IEnumerable<IList<object>> values, int localeColumn)
+        private static IList<IList<object>> RowsWithoutLocaleItems(IEnumerable<IList<object>> values, int localeColumn, int ruColumn)
         {
             var items = ItemList(values);
             
             return items
                 .Where(item => item.Skip(1).Any(
-                    row => String.IsNullOrWhiteSpace(row.CellValue(localeColumn))
+                    row => !String.IsNullOrWhiteSpace(row.CellValue(ruColumn)) &&
+                           String.IsNullOrWhiteSpace(row.CellValue(localeColumn))
                 ))
                 .SelectMany(i => i)
                 .ToList();
