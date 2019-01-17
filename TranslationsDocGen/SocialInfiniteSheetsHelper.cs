@@ -14,7 +14,7 @@ namespace TranslationsDocGen
                    (row[0] as string).StartsWith("#");
         }
 
-        public static int LocaleColumn(this SheetWrapper sheet, string locale)
+        public static int LocaleColumn(this SheetAdapter sheet, string locale)
         {
             void Raise() => throw new Exception($"Sheet: '{sheet.Sheet.Properties.Title}' have not locale: '{locale}'");
 
@@ -26,7 +26,7 @@ namespace TranslationsDocGen
             return column;
         }
 
-        public static IList<IList<object>> RowsWithoutLocale(this SheetWrapper sheet, string locale, int separateRowsCount)
+        public static IList<IList<object>> RowsWithoutLocale(this SheetAdapter sheet, string locale, int separateRowsCount)
         {
             int column = sheet.LocaleColumn(locale);
             

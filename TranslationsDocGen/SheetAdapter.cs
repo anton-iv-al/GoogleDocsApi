@@ -4,7 +4,7 @@ using Google.Apis.Sheets.v4.Data;
 
 namespace TranslationsDocGen
 {
-    public class SheetWrapper
+    public class SheetAdapter
     {
         
         private readonly SheetsService _service;
@@ -14,7 +14,7 @@ namespace TranslationsDocGen
         public string Title() => Sheet.Properties.Title;
         public int Id() => Sheet.Properties.SheetId.Value;
 
-        public SheetWrapper(SheetsService service, string spreadsheetId, Sheet sheet)
+        public SheetAdapter(SheetsService service, string spreadsheetId, Sheet sheet)
         {
             _service = service;
             _spreadsheetId = spreadsheetId;

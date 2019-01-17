@@ -149,6 +149,11 @@ namespace TranslationsDocGen
                 return sheetValues[row].CellValue(column);
             }
         }
+
+        public static string CellValue(this SheetAdapter sheet, int row, int column)
+        {
+            return sheet.Values().CellValue(row, column);
+        }
        
     }
 }

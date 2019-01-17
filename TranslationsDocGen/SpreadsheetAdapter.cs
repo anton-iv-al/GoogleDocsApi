@@ -17,22 +17,22 @@ namespace TranslationsDocGen
             _spreadsheet = spreadsheet;
         }
         
-        private List<SheetWrapper> _sheetsCache;
-        public List<SheetWrapper> Sheets()
+        private List<SheetAdapter> _sheetsCache;
+        public List<SheetAdapter> Sheets()
         {
             if (_sheetsCache == null)
             {
                 _sheetsCache = _spreadsheet
                     .Sheets
-                    .Select(sheet => new SheetWrapper(_service, _spreadsheet.SpreadsheetId, sheet))
+                    .Select(sheet => new SheetAdapter(_service, _spreadsheet.SpreadsheetId, sheet))
                     .ToList();
             }
 
             return _sheetsCache;
         }
         
-        private Dictionary<int, SheetWrapper> _sheetByIdCache;
-        public SheetWrapper SheetById(int id)
+        private Dictionary<int, SheetAdapter> _sheetByIdCache;
+        public SheetAdapter SheetById(int id)
         {
             if (_sheetByIdCache == null)
             {
@@ -44,8 +44,8 @@ namespace TranslationsDocGen
                 : null;
         }
         
-        private Dictionary<string, List<SheetWrapper>> _sheetsByTitleCache;
-        public List<SheetWrapper> SheetsByTitle(string title)
+        private Dictionary<string, List<SheetAdapter>> _sheetsByTitleCache;
+        public List<SheetAdapter> SheetsByTitle(string title)
         {
             if (_sheetsByTitleCache == null)
             {
@@ -56,7 +56,7 @@ namespace TranslationsDocGen
 
             return _sheetsByTitleCache.ContainsKey(title)
                 ? _sheetsByTitleCache[title]
-                : new List<SheetWrapper>();
+                : new List<SheetAdapter>();
         }
         
 
