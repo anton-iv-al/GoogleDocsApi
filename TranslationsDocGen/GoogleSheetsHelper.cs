@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
@@ -44,6 +45,86 @@ namespace TranslationsDocGen
             });
         }
 
+
+        public static SpreadsheetAdapter DownloadSpredsheet(this SheetsService service, string spreadsheetId)
+        {
+            var spreadsheet = service.Spreadsheets
+                .Get(spreadsheetId)
+                .Execute();
+            
+            return new SpreadsheetAdapter(service, spreadsheet);
+        }
+
+        public static SpreadsheetAdapter UploadSpreadsheet(this SheetsService service, string title, IEnumerable<SheetData> sheets)
+        {
+            var spreadsheet = service.Spreadsheets
+                .Create(new Spreadsheet()
+                {
+                    Properties = new SpreadsheetProperties() {Title = title},
+                    Sheets = sheets
+                        .Select(s => new Sheet() {Properties = new SheetProperties() {Title = s.Title}})
+                        .ToList(),
+                })
+                .Execute();
+
+            var spreadsheetAdapter = new SpreadsheetAdapter(service, spreadsheet);
+
+            
+            if (sheets.Any())
+            {
+                var requests = sheets
+                    .Select((sheet, i) =>
+                    {
+                        int sheetId = spreadsheet.Sheets[i].Properties.SheetId.Value;
+                        return UpdateRequest(sheet.Values, sheetId, 0, 0);
+                    })
+                    .ToList();
+
+                spreadsheetAdapter.BatchUpdate(requests);
+            }
+
+            return spreadsheetAdapter;
+        }
+        
+        
+        public static Request UpdateRequest(IList<IList<object>> values, int sheetId, int startRow, int startColumn)
+        {
+            int rowCount = values.Count;
+            int columnCount = values.Select(row => row.Count).Max();
+            
+            var r = new Request();
+            r.UpdateCells = new UpdateCellsRequest()
+            {
+                Fields = "*",
+                Range = new GridRange()
+                {
+                    SheetId = sheetId,
+                    StartRowIndex = startRow,
+                    StartColumnIndex = startColumn,
+                    EndRowIndex = startRow + rowCount,
+                    EndColumnIndex =  startColumn + columnCount,
+                },
+                Rows = values
+                    .Select(row => new RowData()
+                    {
+                        Values = row
+                            .Select(cell => new CellData()
+                            {
+                                UserEnteredValue = new ExtendedValue()
+                                {
+                                    StringValue = (cell as string) ?? cell.ToString()
+                                }
+                            })
+                            .ToList()
+                    })
+                    .ToList()
+            };
+
+            return r;
+        }
+        
+        
+
         public static string CellValue(this IList<object> row, int column)
         {
             if (row.Count <= column)
@@ -67,5 +148,6 @@ namespace TranslationsDocGen
                 return sheetValues[row].CellValue(column);
             }
         }
+       
     }
 }

@@ -9,15 +9,16 @@ namespace TranslationsDocGen
         
         private readonly SheetsService _service;
         private readonly string _spreadsheetId;
-        private readonly Sheet _sheet;
+        public readonly Sheet Sheet;
 
-        public Sheet Sheet => _sheet;
+        public string Title() => Sheet.Properties.Title;
+        public int Id() => Sheet.Properties.SheetId.Value;
 
         public SheetWrapper(SheetsService service, string spreadsheetId, Sheet sheet)
         {
             _service = service;
             _spreadsheetId = spreadsheetId;
-            _sheet = sheet;
+            Sheet = sheet;
         }
 
         private IList<IList<object>> _values;
@@ -27,12 +28,27 @@ namespace TranslationsDocGen
             {
 ////            String range = "Class Data!A2:E";
                 _values = _service.Spreadsheets.Values
-                    .Get(_spreadsheetId, _sheet.Properties.Title)
+                    .Get(_spreadsheetId, Sheet.Properties.Title)
                     .Execute()
                     .Values;
             }
 
             return _values;
+        }
+        
+        public Request UpdateRangeRequest(IList<IList<object>> values, int startRow, int startColumn)
+        {
+            return GoogleSheetsHelper.UpdateRequest(values, Sheet.Properties.SheetId.Value, startRow, startColumn);
+        }
+
+        public Request UpdateCellRequest(string value, int row, int column)
+        {
+            var values = new List<IList<object>>()
+            {
+                new List<object>() {value},
+            };
+            
+            return UpdateRangeRequest(values, row, column);
         }
     }
 }

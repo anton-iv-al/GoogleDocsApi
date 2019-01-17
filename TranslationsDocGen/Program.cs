@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 
 namespace TranslationsDocGen
 {
@@ -11,28 +13,52 @@ namespace TranslationsDocGen
         {
             var service = GoogleSheetsHelper.Service();
             
-            string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8";    // test
-//            string mainItemsId = "1Cfb3MR8pmKBlIi4rSwhkY157A9E9ttqAKgp0vFgh958";    // FamilyNest2 Localization items
-//            string mainTextId = "1Esa52xsi64tPOgqakibdx_ISvOroyXKajDu3-DQwbp8";    // FamilyNest2 Game Text Localization
+//            string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8";    // test
+////            string mainItemsId = "1Cfb3MR8pmKBlIi4rSwhkY157A9E9ttqAKgp0vFgh958";    // FamilyNest2 Localization items
+////            string mainTextId = "1Esa52xsi64tPOgqakibdx_ISvOroyXKajDu3-DQwbp8";    // FamilyNest2 Game Text Localization
+//
+//            var spreadsheet = service.DownloadSpredsheet(testId);
+//
+//            var sheet = spreadsheet.Sheets()[2];
+//
+//            var filteredRows = sheet.RowsWithoutLocale("ja_JP", 2);
+//            
+//            foreach (IList<object> row in filteredRows)
+//            {
+//                foreach (string cell in row)
+//                {
+//                    Console.Write(cell + ", ");
+//                }
+//                Console.WriteLine();
+//            }
+//            
+//            Console.WriteLine();
             
-            var spreadsheet = new SpreadsheetAdapter(service, testId);
-
-            var sheet = spreadsheet.Sheets().ToList()[2];
-
-            var filteredRows = sheet.RowsWithoutLocale("ja_JP", 2);
             
-            foreach (IList<object> row in filteredRows)
+            
+//            var sheet1 = new SheetData();
+//            sheet1.Title = "MySheet1";
+//            sheet1.Values = new List<IList<object>>()
+//            {
+//                new List<object>() {5, 2, 3, 4},
+//                new List<object>() {5, 3, 2, 1},
+//            };
+            
+//            var spreadsheet = service.UploadSpreadsheet("CreateTest3", new []{sheet1});
+            
+            
+            var spreadsheet = service.DownloadSpredsheet("1mSAmOmKz6XRRXPvRX7AZnNE9hb6hFDQlF8QZMXGIoRc");
+//
+            var requests = new List<Request>()
             {
-                foreach (string cell in row)
-                {
-                    Console.Write(cell + ", ");
-                }
-                Console.WriteLine();
-            }
+                spreadsheet.SheetsByTitle("MySheet1")[0].UpdateCellRequest("114", 10, 4),
+                spreadsheet.SheetsByTitle("MySheet1")[0].UpdateCellRequest("115", 12, 4),
+                spreadsheet.SheetsByTitle("MySheet1")[0].UpdateCellRequest("116", 12, 2),
+            };
+            spreadsheet.BatchUpdate(requests);
             
-            Console.WriteLine();
-
-//            spreadsheet.WriteToConsole();
+            
+            Console.WriteLine("Done");
         }
 
         
