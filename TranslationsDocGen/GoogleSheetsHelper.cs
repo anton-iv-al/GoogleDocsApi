@@ -76,7 +76,7 @@ namespace TranslationsDocGen
                     .Select((sheet, i) =>
                     {
                         int sheetId = spreadsheet.Sheets[i].Properties.SheetId.Value;
-                        return UpdateRequest(sheet.Values, sheetId, 0, 0);
+                        return AppendRequest(sheet.Values, sheetId);
                     })
                     .ToList();
 
@@ -104,24 +104,42 @@ namespace TranslationsDocGen
                     EndRowIndex = startRow + rowCount,
                     EndColumnIndex =  startColumn + columnCount,
                 },
-                Rows = values
-                    .Select(row => new RowData()
-                    {
-                        Values = row
-                            .Select(cell => new CellData()
-                            {
-                                UserEnteredFormat = new CellFormat(){WrapStrategy = "WRAP"},
-                                UserEnteredValue = new ExtendedValue()
-                                {
-                                    StringValue = (cell as string) ?? cell.ToString()
-                                }
-                            })
-                            .ToList()
-                    })
-                    .ToList()
+                Rows = ToRowData(values)
             };
 
             return r;
+        }
+        
+        public static Request AppendRequest(IList<IList<object>> values, int sheetId)
+        {
+            var r = new Request();
+            r.AppendCells = new AppendCellsRequest()
+            {
+                Fields = "*",
+                SheetId = sheetId,
+                Rows = ToRowData(values)
+            };
+
+            return r;
+        }
+
+        private static IList<RowData> ToRowData(IList<IList<object>> values)
+        {
+            return values
+                .Select(row => new RowData()
+                {
+                    Values = row
+                        .Select(cell => new CellData()
+                        {
+                            UserEnteredFormat = new CellFormat() {WrapStrategy = "WRAP"},
+                            UserEnteredValue = new ExtendedValue()
+                            {
+                                StringValue = (cell as string) ?? cell.ToString()
+                            }
+                        })
+                        .ToList()
+                })
+                .ToList();
         }
         
         

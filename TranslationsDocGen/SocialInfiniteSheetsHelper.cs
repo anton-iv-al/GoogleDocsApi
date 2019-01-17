@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Google.Apis.Sheets.v4;
@@ -30,15 +31,35 @@ namespace TranslationsDocGen
         {
             int column = sheet.LocaleColumn(locale);
             
-            bool withLocale(IList<object> row) => !row.IsRowEmpty() &&
-                                                  String.IsNullOrWhiteSpace(row.CellValue(column));
-
             var res = new List<IList<object>>();
             res.Add(sheet.Values().First());
             res.Add(new List<object>());
 
+            if (IsItemsSheet(sheet))
+            {
+                res = res
+                    .Concat(RowsWithoutLocaleItems(sheet.Values().Skip(1), column))
+                    .ToList();
+            }
+            else
+            {
+                res = res
+                    .Concat(RowsWithoutLocaleText(sheet.Values().Skip(1), column, separateRowsCount))
+                    .ToList();
+            }
+
+            return res;
+        }
+
+        private static IList<IList<object>> RowsWithoutLocaleText(IEnumerable<IList<object>> values, int localeColumn, int separateRowsCount)
+        {
+            bool withLocale(IList<object> row) => !row.IsRowEmpty() &&
+                                                  String.IsNullOrWhiteSpace(row.CellValue(localeColumn));
+            
+            var res = new List<IList<object>>();
+
             bool prevWithLocale = false;
-            foreach (IList<object> row in sheet.Values().Skip(1))
+            foreach (IList<object> row in values)
             {
                 bool curWithLocale = withLocale(row);
                 
@@ -59,6 +80,68 @@ namespace TranslationsDocGen
             }
 
             return res;
+        }
+
+        private static IList<IList<object>> RowsWithoutLocaleItems(IEnumerable<IList<object>> values, int localeColumn)
+        {
+            var items = ItemList(values);
+            
+            return items
+                .Where(item => item.Skip(1).Any(
+                    row => String.IsNullOrWhiteSpace(row.CellValue(localeColumn))
+                ))
+                .SelectMany(i => i)
+                .ToList();
+        
+                
+        }
+
+        private static List<IList<IList<object>>> ItemList(IEnumerable<IList<object>> values)
+        {
+            var res = new List<IList<IList<object>>>();
+            
+            IList<IList<object>> curItem = null;
+            
+            void TryAddCurItem()
+            {
+                if (curItem != null && curItem.Count > 1)
+                {
+                    res.Add(curItem);
+                }
+                curItem = null;
+            }
+            
+            
+            foreach (IList<object> row in values)
+            {
+                bool firstEmpty() => String.IsNullOrWhiteSpace(row.CellValue(0));
+                bool secondEmpty() => String.IsNullOrWhiteSpace(row.CellValue(1));
+                
+                if (!firstEmpty() || secondEmpty())
+                {
+                    TryAddCurItem();
+                }
+                
+                if (!firstEmpty())
+                {
+                    curItem = new List<IList<object>>();
+                    curItem.Add(row);
+                }
+                
+                if (curItem != null && !secondEmpty())
+                {
+                    curItem.Add(row);
+                }
+            }
+            
+            TryAddCurItem();
+
+            return res;
+        }
+
+        public static bool IsItemsSheet(this SheetAdapter sheet)
+        {
+            return sheet.CellValue(0, 1) == "keys";
         }
 
         public static SpreadsheetAdapter UploadMissingLocaleSpreadsheet(this SheetsService service, string originalSpreadsheetId, string locale, string newSpreadsheetTitle)
