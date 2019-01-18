@@ -37,8 +37,8 @@ namespace TranslationsDocGen
             var requests = SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ja_JP");
             spreadsheetTo.BatchUpdate(requests);
 
-//            var sheetFrom = spreadsheetFrom.SheetsByTitle("Quests")[0];
-//            var sheetTo = spreadsheetTo.SheetsByTitle("Quests")[0];
+//            var sheetFrom = spreadsheetFrom.SheetByTitle("Quests")[0];
+//            var sheetTo = spreadsheetTo.SheetByTitle("Quests")[0];
             
 //            var requests = SocialInfiniteSheetsHelper.CopySheetsLocale(sheetFrom, sheetTo, "ja_JP");
 //            spreadsheetTo.BatchUpdate(requests);

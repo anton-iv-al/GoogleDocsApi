@@ -44,19 +44,18 @@ namespace TranslationsDocGen
                 : null;
         }
         
-        private Dictionary<string, List<SheetAdapter>> _sheetsByTitleCache;
-        public List<SheetAdapter> SheetsByTitle(string title)        //TODO: Title is unique
+        private Dictionary<string, SheetAdapter> _sheetByTitleCache;
+        public SheetAdapter SheetByTitle(string title)
         {
-            if (_sheetsByTitleCache == null)
+            if (_sheetByTitleCache == null)
             {
-                _sheetsByTitleCache = Sheets()
-                    .GroupBy(s => s.Title())
-                    .ToDictionary(g => g.Key, g => g.ToList());
+                _sheetByTitleCache = Sheets()
+                    .ToDictionary(s => s.Title());
             }
 
-            return _sheetsByTitleCache.ContainsKey(title)
-                ? _sheetsByTitleCache[title]
-                : new List<SheetAdapter>();
+            return _sheetByTitleCache.ContainsKey(title)
+                ? _sheetByTitleCache[title]
+                : null;
         }
         
 

@@ -15,18 +15,6 @@ namespace TranslationsDocGen
                    (row[0] as string).StartsWith("#");
         }
 
-        public static int LocaleColumn(this SheetAdapter sheet, string locale)
-        {
-            void Raise() => throw new Exception($"Sheet: '{sheet.Sheet.Properties.Title}' have not locale: '{locale}'");
-
-            if (sheet.Values().Count == 0) Raise();
-            
-            var column = sheet.Values()[0].IndexOf(locale);
-            if (column < 0) Raise();
-
-            return column;
-        }
-
         public static IList<IList<object>> RowsWithoutLocale(this SheetAdapter sheet, string locale, int separateRowsCount)
         {
             
@@ -110,7 +98,7 @@ namespace TranslationsDocGen
             
             LocalizationItem curItem = null;
             
-            void TryAddCurItem()
+            void tryAddCurItem()
             {
                 if (curItem != null && curItem.Rows.Count > 0)
                 {
@@ -127,7 +115,7 @@ namespace TranslationsDocGen
                 
                 if (!firstEmpty() || secondEmpty())
                 {
-                    TryAddCurItem();
+                    tryAddCurItem();
                 }
                 
                 if (!firstEmpty())
@@ -141,7 +129,7 @@ namespace TranslationsDocGen
                 }
             }
             
-            TryAddCurItem();
+            tryAddCurItem();
 
             return res;
         }
@@ -178,9 +166,8 @@ namespace TranslationsDocGen
             
             foreach (var sheetFrom in spreadsheetFrom.Sheets())
             {
-                var sheetsWithTitle = spreadsheetTo.SheetsByTitle(sheetFrom.Title());
-                if (sheetsWithTitle.Count != 1) continue;                                //TODO: title duplication
-                var sheetTo = sheetsWithTitle[0];
+                var sheetTo = spreadsheetTo.SheetByTitle(sheetFrom.Title());
+                if (sheetTo == null) continue;
                 
                 res = res.Concat(CopySheetsLocale(sheetFrom, sheetTo, locale));
             }
@@ -217,18 +204,22 @@ namespace TranslationsDocGen
                 if (!keyEmpty(rowFrom) && !localeFromEmpty(rowFrom))
                 {
                     string key = rowFrom.CellValue(0);
-                    int rowIndexTo = RowIndexByKey(sheetTo, key);
-                    if (rowIndexTo >= 0)
+                    int? rowIndexTo = sheetTo.RowIndexByKey(key);
+                    if (rowIndexTo.HasValue)
                     {
-                        if (String.IsNullOrWhiteSpace(sheetTo.CellValue(rowIndexTo, localeColumnTo)))
+                        if (String.IsNullOrWhiteSpace(sheetTo.CellValue(rowIndexTo.Value, localeColumnTo)))
                         {
                             Console.WriteLine($"Copy to empty sheetTo = {sheetTo.Title()}, key = {key}");    //TODO: log
                         }
                         res.Add(sheetTo.UpdateCellRequest(
                             value: rowFrom.CellValue(localeColumnFrom), 
-                            row: rowIndexTo, 
+                            row: rowIndexTo.Value, 
                             column: localeColumnTo
                             ));
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Not found text key = {key}, sheetTo = {sheetTo.Title()}"); //TODO: log
                     }
                 }
             }
@@ -254,11 +245,15 @@ namespace TranslationsDocGen
         private static List<Request> CopyItemLocale(LocalizationItem item, SheetAdapter sheetTo, string locale, int localeColumnFrom, int ruColumnFrom)
         {
             int localeColumnTo = LocaleColumn(sheetTo, locale);
-            int itemToRowIndex = RowIndexByKey(sheetTo, item.ItemName);
+            int? itemToRowIndex = sheetTo.RowIndexByKey(item.ItemName);
+
+            if (!itemToRowIndex.HasValue)
+            {
+                Console.WriteLine($"Not found item_name = {item.ItemName}, sheetTo = {sheetTo.Title()}"); //TODO: log
+                return new List<Request>();
+            }
             
-            if(itemToRowIndex < 0) return new List<Request>();
-            
-            if (String.IsNullOrWhiteSpace(sheetTo.CellValue(itemToRowIndex + 1, localeColumnTo)))
+            if (String.IsNullOrWhiteSpace(sheetTo.CellValue(itemToRowIndex.Value + 1, localeColumnTo)))
             {
                 Console.WriteLine($"Copy to empty sheetTo = {sheetTo.Title()}, itemName = {item.ItemName}"); //TODO: log
             }
@@ -270,27 +265,61 @@ namespace TranslationsDocGen
                 .Where(row => !localeFromEmpty(row) && !ruFromEmpty(row))    //TODO: no checking itemTo
                 .Select((row, i) => sheetTo.UpdateCellRequest(
                     value: row.CellValue(localeColumnFrom), 
-                    row: itemToRowIndex + 1 + i, 
+                    row: itemToRowIndex.Value + 1 + i, 
                     column: localeColumnTo
                 ))
                 .ToList();
         }
 
-        private static Dictionary<SheetAdapter, Dictionary<string, int>> _rowIndexByKeyCache = new Dictionary<SheetAdapter, Dictionary<string, int>>();
-        private static int RowIndexByKey(SheetAdapter sheet, string key)
+        private static Dictionary<SheetAdapter, Dictionary<string, int?>> _rowIndexByKeyCache = new Dictionary<SheetAdapter, Dictionary<string, int?>>();
+        private static int? RowIndexByKey(this SheetAdapter sheet, string key)
         {
             if (!_rowIndexByKeyCache.ContainsKey(sheet))
             {
                 _rowIndexByKeyCache[sheet] = sheet.Values().Skip(1)
-                    .Select((row, i) => new {i, key = row.CellValue(0)})    //TODO: key duplication
+                    .Select((row, i) => new {key = row.CellValue(0), i})
                     .GroupBy(pair => pair.key)
-                    .Select(group => new {key = group.Key, i = group.First().i})
-                    .ToDictionary(pair => pair.key, pair => pair.i + 1);
+                    .Select(group =>
+                    {
+                        if (!String.IsNullOrWhiteSpace(group.Key) && group.Count() > 1)
+                        {
+                            throw new Exception($"Double key = {group.Key}, sheet = {sheet.Title()}");
+                        }
+                        return new {key = @group.Key, i = @group.First().i};
+                    })
+                    .ToDictionary(pair => pair.key, pair => new int?(pair.i + 1));
             }
 
             return _rowIndexByKeyCache[sheet].ContainsKey(key)
                 ? _rowIndexByKeyCache[sheet][key]
-                : -100;
+                : null;
+        }
+
+        private static Dictionary<SheetAdapter, Dictionary<string, int>> _localeColumnCache = new Dictionary<SheetAdapter, Dictionary<string, int>>();
+        private static int LocaleColumn(this SheetAdapter sheet, string locale)
+        {
+            void raiseNoLocale() => throw new Exception($"Sheet: '{sheet.Sheet.Properties.Title}' have not locale: '{locale}'");
+            void raiseDoubleLocale() => throw new Exception($"Double locale = {locale}, sheet = {sheet.Title()}");
+            
+            if (!_localeColumnCache.ContainsKey(sheet))
+            {
+                if (sheet.Values().Count == 0) raiseNoLocale();
+                
+                _localeColumnCache[sheet] = new Dictionary<string, int>();
+            }
+            
+            if (!_localeColumnCache[sheet].ContainsKey(locale))
+            {
+                var locales = sheet.Values()[0].ToList();
+                var column = locales.IndexOf(locale);
+                
+                if (column < 0) raiseNoLocale();
+                if (locales.LastIndexOf(locale) != column) raiseDoubleLocale();
+                
+                _localeColumnCache[sheet][locale] = column;
+            }
+
+            return _localeColumnCache[sheet][locale];
         }
     }
 }
