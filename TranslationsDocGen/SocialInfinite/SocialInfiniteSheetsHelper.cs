@@ -148,7 +148,7 @@ namespace TranslationsDocGen.SocialInfinite
 
             foreach (var sheetData in newSheetsData)
             {
-                Console.WriteLine($"New sheet = {sheetData.Title}, rows count = {sheetData.Values.Count}"); //TODO: log
+                Logger.Log($"New sheet = {sheetData.Title}, rows count = {sheetData.Values.Count}"); 
             }
             
             return service.UploadSpreadsheet(newSpreadsheetTitle, newSheetsData);
@@ -202,7 +202,7 @@ namespace TranslationsDocGen.SocialInfinite
                 }
             }
             
-            Console.WriteLine($"Copying {res.Count} keys, sheetTo = {sheetTo.Title()}"); //TODO: log
+            Logger.Log($"Copying {res.Count} keys, sheetTo = {sheetTo.Title()}"); 
 
             return res;
         }
@@ -214,13 +214,13 @@ namespace TranslationsDocGen.SocialInfinite
 
 //            if (textFrom.Translation("ru_RU").IsEmptyCell())
 //            {
-//                Console.WriteLine($"CopyTextLocale-> empty default locale, sheetFrom = {textFrom.Sheet.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
+//                Logger.Log($"CopyTextLocale-> empty default locale, sheetFrom = {textFrom.Sheet.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    
 //                return null;
 //            }
             
             if (textFrom.Translation(locale).IsEmptyCell())
             {
-                Console.WriteLine($"CopyTextLocale-> empty locale, sheetFrom = {textFrom.Sheet.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
+                Logger.Log($"CopyTextLocale-> empty locale, sheetFrom = {textFrom.Sheet.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    
                 return null;
             }
             
@@ -233,14 +233,14 @@ namespace TranslationsDocGen.SocialInfinite
                 bool writingToEmptyCell = sheetTo.CellValue(rowIndexTo.Value, localeColumnTo).IsEmptyCell();
                 if (writingToEmptyCell)
                 {
-                    Console.WriteLine($"Copy to empty text, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
+                    Logger.Log($"Copy to empty text, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    
                 }
 
                 bool changingCell = sheetTo.CellValue(rowIndexTo.Value, localeColumnTo) != textFrom.Translation(locale);
                 if (!writingToEmptyCell && changingCell)
                 {
                     if (!canRewrite) return null;
-                    Console.WriteLine($"Rewrite text value, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
+                    Logger.Log($"Rewrite text value, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    
                 }
                 
                 return sheetTo.UpdateCellRequest(
@@ -251,7 +251,7 @@ namespace TranslationsDocGen.SocialInfinite
             }
             else
             {
-                Console.WriteLine($"Not found text, {itemLog()}key = {textFrom.Key}, sheetTo = {sheetTo.Title()}"); //TODO: log
+                Logger.Log($"Not found text, {itemLog()}key = {textFrom.Key}, sheetTo = {sheetTo.Title()}"); 
                 return null;
             }
         }
@@ -267,7 +267,7 @@ namespace TranslationsDocGen.SocialInfinite
                 int? itemToRowIndex = sheetTo.RowIndexByKey(keyColumn: ITEM_NAME_COLUMN, isSubColumn: false, key: textFrom.Item.ItemName);    
                 if (!itemToRowIndex.HasValue)
                 {
-                    Console.WriteLine($"Not found item_name = {textFrom.Item.ItemName}, sheetTo = {sheetTo.Title()}"); //TODO: log
+                    Logger.Log($"Not found item_name = {textFrom.Item.ItemName}, sheetTo = {sheetTo.Title()}"); 
                     return null;
                 }
             
@@ -282,7 +282,7 @@ namespace TranslationsDocGen.SocialInfinite
         {
             var itemsFrom = ItemList(sheetFrom);
             
-            Console.WriteLine($"Copying {itemsFrom.Count} items, sheetTo = {sheetTo.Title()}"); //TODO: log
+            Logger.Log($"Copying {itemsFrom.Count} items, sheetTo = {sheetTo.Title()}"); 
             
             return itemsFrom
                 .SelectMany(item => CopyItemLocale(item, sheetTo, locale, canRewrite))
@@ -299,7 +299,7 @@ namespace TranslationsDocGen.SocialInfinite
 
             if (!itemToRowIndex.HasValue)
             {
-                Console.WriteLine($"Not found item_name = {itemFrom.ItemName}, sheetTo = {sheetTo.Title()}"); //TODO: log
+                Logger.Log($"Not found item_name = {itemFrom.ItemName}, sheetTo = {sheetTo.Title()}"); 
                 return new List<Request>();
             }
 
