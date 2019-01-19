@@ -8,7 +8,6 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="credentials.json" t="Include" />
         <e p="GoogleSheetsHelper.cs" t="Include" />
-        <e p="LocalizationItem.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="packages.config" t="Include" />
         <e p="Program.cs" t="Include" />
@@ -17,7 +16,11 @@
         </e>
         <e p="SheetAdapter.cs" t="Include" />
         <e p="SheetData.cs" t="Include" />
-        <e p="SocialInfiniteSheetsHelper.cs" t="Include" />
+        <e p="SocialInfinite" t="Include">
+          <e p="LocalizationItem.cs" t="Include" />
+          <e p="LocalizationText.cs" t="Include" />
+          <e p="SocialInfiniteSheetsHelper.cs" t="Include" />
+        </e>
         <e p="SpreadsheetAdapter.cs" t="Include" />
         <e p="TranslationsDocGen.csproj" t="IncludeRecursive" />
       </e>

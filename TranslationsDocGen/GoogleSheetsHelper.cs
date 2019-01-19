@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -146,6 +147,8 @@ namespace TranslationsDocGen
 
         public static string CellValue(this IList<object> row, int column)
         {
+            if(column < 0) throw new Exception($"CellValue-> negative column = '{column}'");
+            
             if (row.Count <= column)
             {
                 return "";
@@ -158,6 +161,8 @@ namespace TranslationsDocGen
 
         public static string CellValue(this IList<IList<object>> sheetValues, int row, int column)
         {
+            if(row < 0) throw new Exception($"CellValue-> negative row = '{row}'");
+            
             if (sheetValues.Count <= row)
             {
                 return "";
