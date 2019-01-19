@@ -15,7 +15,7 @@ namespace TranslationsDocGen
             var service = GoogleSheetsHelper.Service();
             
             string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8";    // test
-            string test2Id = "1WBN-RAVIYU8MBaS7n3PTgBAoJf7WzwQM4sXDkBs6rt8";    // test copy
+            string test2Id = "1pB3DCuq2T6tuZB1TArYfjgzhTtgO6Z2sipxvzfIYfN8";    // test copy
             
 //            string royalItemsId = "1Cfb3MR8pmKBlIi4rSwhkY157A9E9ttqAKgp0vFgh958";    // FamilyNest2 Localization items
 //            string royalTextId = "1Esa52xsi64tPOgqakibdx_ISvOroyXKajDu3-DQwbp8";    // FamilyNest2 Game Text Localization
@@ -27,7 +27,7 @@ namespace TranslationsDocGen
 //            string mainTextJapanId = "1v6NVFcHYn1mf9SmwpsojOYKlVnyC4R30o1YfeQJGYzo";    // Japan Items Localization
 
 
-//            service.UploadMissingLocaleSpreadsheet(testId, "ja_JP", "ApiTestCopy"); 
+//            service.UploadMissingLocaleSpreadsheet(testId, locale: "ja_JP", defaultLocale: "ru_RU", newSpreadsheetTitle: "ApiTestCopy2"); 
 //            service.UploadMissingLocaleSpreadsheet(mainItemsId, "ja_JP", "FN2_Items_2019_01_17"); 
 //            service.UploadMissingLocaleSpreadsheet(mainTextId, "ja_JP", "FN2_Text_2019_01_17"); 
 
@@ -35,7 +35,7 @@ namespace TranslationsDocGen
             var spreadsheetFrom = service.DownloadSpredsheet(test2Id);
             var spreadsheetTo = service.DownloadSpredsheet(testId);
             
-            var requests = SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ja_JP");
+            var requests = SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ja_JP", false);
             spreadsheetTo.BatchUpdate(requests);
 
 //            var sheetFrom = spreadsheetFrom.SheetByTitle("Quests")[0];

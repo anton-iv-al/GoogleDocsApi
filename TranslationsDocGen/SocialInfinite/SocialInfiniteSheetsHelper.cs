@@ -25,7 +25,7 @@ namespace TranslationsDocGen.SocialInfinite
                    s.StartsWith("#");
         }
 
-        public static IList<IList<object>> RowsWithoutLocale(this SheetAdapter sheet, string locale, int separateRowsCount)
+        public static IList<IList<object>> RowsWithoutLocale(this SheetAdapter sheet, string locale, string defaultLocale)
         {
             
             var res = new List<IList<object>>();
@@ -35,66 +35,55 @@ namespace TranslationsDocGen.SocialInfinite
             if (IsItemsSheet(sheet))
             {
                 res = res
-                    .Concat(RowsWithoutLocaleItems(sheet, locale))
+                    .Concat(RowsWithoutLocaleItems(sheet, locale, defaultLocale))
                     .ToList();
             }
             else
             {
                 res = res
-                    .Concat(RowsWithoutLocaleText(sheet, locale, separateRowsCount))
+                    .Concat(RowsWithoutLocaleText(sheet, locale, defaultLocale))
                     .ToList();
             }
 
             return res;
         }
 
-        private static IList<IList<object>> RowsWithoutLocaleText(SheetAdapter sheet, string locale, int separateRowsCount)
+        private static IList<IList<object>> RowsWithoutLocaleText(SheetAdapter sheet, string locale, string defaultLocale)
         {
             int localeColumn = sheet.LocaleColumn(locale);
+            int defaultLocaleColumn = sheet.LocaleColumn(defaultLocale);
             
-            bool withLocale(IList<object> row) => !row.IsRowEmpty() &&
-                                                  row.CellValue(localeColumn).IsEmptyCell();
+            bool withoutLocale(IList<object> row) => !row.IsRowEmpty() &&
+                                                     !row.CellValue(defaultLocaleColumn).IsEmptyCell() &&
+                                                      row.CellValue(localeColumn).IsEmptyCell();
             
             var res = new List<IList<object>>();
 
-            bool prevWithLocale = false;
             foreach (IList<object> row in sheet.Values().Skip(1))
             {
-                bool curWithLocale = withLocale(row);
-                
-                if (curWithLocale)
+                if (withoutLocale(row))
                 {
                     res.Add(row);
                 }
-                
-                if (!curWithLocale && prevWithLocale)
-                {
-                    for (int i = 0; i < separateRowsCount; i++)
-                    {
-                        res.Add(new List<object>());
-                    }
-                }
-
-                prevWithLocale = curWithLocale;
             }
 
             return res;
         }
 
-        private static IList<IList<object>> RowsWithoutLocaleItems(SheetAdapter sheet, string locale)
+        private static IList<IList<object>> RowsWithoutLocaleItems(SheetAdapter sheet, string locale, string defaultLocale)
         {
-            return ItemsWithoutLocaleItems(sheet, locale)
+            return ItemsWithoutLocaleItems(sheet, locale, defaultLocale)
                 .SelectMany(i => i.RowsWithName())
                 .ToList();
         }
 
-        private static IEnumerable<LocalizationItem> ItemsWithoutLocaleItems(SheetAdapter sheet, string locale)
+        private static IEnumerable<LocalizationItem> ItemsWithoutLocaleItems(SheetAdapter sheet, string locale, string defaultLocale)
         {
             var items = ItemList(sheet);
 
             return items
                 .Where(item => item.SubkeyRows.Any(
-                    row => !row.Translation("ru_RU").IsEmptyCell() &&
+                    row => !row.Translation(defaultLocale).IsEmptyCell() &&
                            row.Translation(locale).IsEmptyCell()
                 ));
         }
@@ -122,7 +111,7 @@ namespace TranslationsDocGen.SocialInfinite
                     
                         var item = LocalizationItem.GetItem(sheet, i);
                         res.Add(item);
-                        i = item.RowLast + 1;
+                        i = item.RowLast;    // after i++ next = item.RowLast + 1
                     }
                 }
 
@@ -144,7 +133,7 @@ namespace TranslationsDocGen.SocialInfinite
             return null;        
         }
 
-        public static SpreadsheetAdapter UploadMissingLocaleSpreadsheet(this SheetsService service, string originalSpreadsheetId, string locale, string newSpreadsheetTitle)
+        public static SpreadsheetAdapter UploadMissingLocaleSpreadsheet(this SheetsService service, string originalSpreadsheetId, string locale, string defaultLocale, string newSpreadsheetTitle)
         {
             var spreadsheet = service.DownloadSpredsheet(originalSpreadsheetId);
 
@@ -152,7 +141,7 @@ namespace TranslationsDocGen.SocialInfinite
                 .Select(sheet => new SheetData()
                 {
                     Title = sheet.Title(),
-                    Values = sheet.RowsWithoutLocale(locale, 2)
+                    Values = sheet.RowsWithoutLocale(locale, defaultLocale)
                 })
                 .Where(s => s.Values.Count > 2)
                 .ToList();
@@ -165,7 +154,7 @@ namespace TranslationsDocGen.SocialInfinite
             return service.UploadSpreadsheet(newSpreadsheetTitle, newSheetsData);
         }
 
-        public static List<Request> CopySpreadsheetLocale(SpreadsheetAdapter spreadsheetFrom, SpreadsheetAdapter spreadsheetTo, string locale)
+        public static List<Request> CopySpreadsheetLocale(SpreadsheetAdapter spreadsheetFrom, SpreadsheetAdapter spreadsheetTo, string locale, bool canRewrite)
         {
             IEnumerable<Request> res = new List<Request>();
             
@@ -174,25 +163,25 @@ namespace TranslationsDocGen.SocialInfinite
                 var sheetTo = spreadsheetTo.SheetByTitle(sheetFrom.Title());
                 if (sheetTo == null) continue;
                 
-                res = res.Concat(CopySheetsLocale(sheetFrom, sheetTo, locale));
+                res = res.Concat(CopySheetsLocale(sheetFrom, sheetTo, locale, canRewrite));
             }
 
             return res.ToList();
         }
 
-        public static List<Request> CopySheetsLocale(SheetAdapter sheetFrom, SheetAdapter sheetTo, string locale)
+        public static List<Request> CopySheetsLocale(SheetAdapter sheetFrom, SheetAdapter sheetTo, string locale, bool canRewrite)
         {
             if(IsItemsSheet(sheetFrom))
             {
-                return CopySheetsLocaleItems(sheetFrom, sheetTo, locale);
+                return CopySheetsLocaleItems(sheetFrom, sheetTo, locale, canRewrite);
             }
             else
             {
-                return CopySheetsLocaleText(sheetFrom, sheetTo, locale);
+                return CopySheetsLocaleText(sheetFrom, sheetTo, locale, canRewrite);
             }
         }
 
-        private static List<Request> CopySheetsLocaleText(SheetAdapter sheetFrom, SheetAdapter sheetTo, string locale)
+        private static List<Request> CopySheetsLocaleText(SheetAdapter sheetFrom, SheetAdapter sheetTo, string locale, bool canRewrite)
         {
             var keyColumn = 0;
             
@@ -208,7 +197,7 @@ namespace TranslationsDocGen.SocialInfinite
                 {
                     var text = new LocalizationText(sheetFrom, i, keyColumn);
                     
-                    var request = CopyTextLocale(text, sheetTo, locale, keyColumn);
+                    var request = CopyTextLocale(text, sheetTo, locale, keyColumn, canRewrite);
                     if(request != null) res.Add(request);
                 }
             }
@@ -218,16 +207,16 @@ namespace TranslationsDocGen.SocialInfinite
             return res;
         }
 
-        private static Request CopyTextLocale(LocalizationText textFrom, SheetAdapter sheetTo, string locale, int keyColumn)
+        private static Request CopyTextLocale(LocalizationText textFrom, SheetAdapter sheetTo, string locale, int keyColumn, bool canRewrite)
         {
             string itemLog() => textFrom.Item == null ? "" : $"item = {textFrom.Item.ItemName}, ";
             
 
-            if (textFrom.Translation("ru_RU").IsEmptyCell())            //TODO: only ru_RU default locale
-            {
-                Console.WriteLine($"CopyTextLocale-> empty default locale, sheetFrom = {textFrom.Sheet.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
-                return null;
-            }
+//            if (textFrom.Translation("ru_RU").IsEmptyCell())
+//            {
+//                Console.WriteLine($"CopyTextLocale-> empty default locale, sheetFrom = {textFrom.Sheet.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
+//                return null;
+//            }
             
             if (textFrom.Translation(locale).IsEmptyCell())
             {
@@ -241,14 +230,17 @@ namespace TranslationsDocGen.SocialInfinite
             
             if (rowIndexTo.HasValue)
             {
-                if (sheetTo.CellValue(rowIndexTo.Value, localeColumnTo).IsEmptyCell())
+                bool writingToEmptyCell = sheetTo.CellValue(rowIndexTo.Value, localeColumnTo).IsEmptyCell();
+                if (writingToEmptyCell)
                 {
                     Console.WriteLine($"Copy to empty text, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
                 }
-                
-                if (sheetTo.CellValue(rowIndexTo.Value, localeColumnTo) != textFrom.Translation(locale))
+
+                bool changingCell = sheetTo.CellValue(rowIndexTo.Value, localeColumnTo) != textFrom.Translation(locale);
+                if (!writingToEmptyCell && changingCell)
                 {
-                    Console.WriteLine($"Change text value, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
+                    if (!canRewrite) return null;
+                    Console.WriteLine($"Rewrite text value, sheetTo = {sheetTo.Title()}, {itemLog()}key = {textFrom.Key}, locale = {locale}");    //TODO: log
                 }
                 
                 return sheetTo.UpdateCellRequest(
@@ -286,18 +278,18 @@ namespace TranslationsDocGen.SocialInfinite
             }
         }
 
-        private static List<Request> CopySheetsLocaleItems(SheetAdapter sheetFrom, SheetAdapter sheetTo, string locale)
+        private static List<Request> CopySheetsLocaleItems(SheetAdapter sheetFrom, SheetAdapter sheetTo, string locale, bool canRewrite)
         {
             var itemsFrom = ItemList(sheetFrom);
             
             Console.WriteLine($"Copying {itemsFrom.Count} items, sheetTo = {sheetTo.Title()}"); //TODO: log
             
             return itemsFrom
-                .SelectMany(item => CopyItemLocale(item, sheetTo, locale))
+                .SelectMany(item => CopyItemLocale(item, sheetTo, locale, canRewrite))
                 .ToList();
         }
 
-        private static List<Request> CopyItemLocale(LocalizationItem itemFrom, SheetAdapter sheetTo, string locale)
+        private static List<Request> CopyItemLocale(LocalizationItem itemFrom, SheetAdapter sheetTo, string locale, bool canRewrite)
         {
             int? subkeyColumnTemp = SubKeyColumn(sheetTo);
             if(!subkeyColumnTemp.HasValue) throw new Exception($"CopyItemLocale-> sheet have not subkeyColumn, sheetTo = '{sheetTo.Title()}''");
@@ -312,7 +304,7 @@ namespace TranslationsDocGen.SocialInfinite
             }
 
             return itemFrom.SubkeyRows
-                .Select(text => CopyTextLocale(text, sheetTo, locale, subKeyColumnTo))
+                .Select(text => CopyTextLocale(text, sheetTo, locale, subKeyColumnTo, canRewrite))
                 .Where(request => request != null)
                 .ToList();
         }
