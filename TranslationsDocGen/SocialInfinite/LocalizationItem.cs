@@ -16,7 +16,7 @@ namespace TranslationsDocGen.SocialInfinite
 
         private LocalizationItem(SheetAdapter sheet, int keyRow)
         {
-            if (keyRow <= 1 || keyRow >= sheet.Values().Count)
+            if (keyRow <= 0 || keyRow >= sheet.Values().Count)
             {
                 throw new Exception($"LocaliztionText-> row out of range, sheet = '{sheet.Title()}', keyRow = '{keyRow}'");
             }

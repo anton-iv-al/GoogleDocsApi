@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Prog\My\GoogleDocsApi" t="IncludeFlat">
+    <e p="C:\tools\TranslationsDocGen" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="TranslationsDocGen" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
@@ -27,6 +27,6 @@
       </e>
       <e p="TranslationsDocGen.sln" t="IncludeFlat" />
     </e>
-    <e p="C:\Users\anton\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_TranslationsDocGen.-1835899273.00" t="ExcludeRecursive" />
+    <e p="C:\Users\anton\.Rider2018.1\system\resharper-host\local\Transient\ReSharperHost\v12\SolutionCaches\_TranslationsDocGen.-1754970544.00" t="ExcludeRecursive" />
   </component>
 </project>

@@ -16,11 +16,11 @@ namespace TranslationsDocGen
 
             using (new FileLogListener("log"))
             {
-                string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8"; // test
-                string test2Id = "1pB3DCuq2T6tuZB1TArYfjgzhTtgO6Z2sipxvzfIYfN8"; // test copy
+//                string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8"; // test
+//                string test2Id = "1pB3DCuq2T6tuZB1TArYfjgzhTtgO6Z2sipxvzfIYfN8"; // test copy
 
-//            string royalItemsId = "1Cfb3MR8pmKBlIi4rSwhkY157A9E9ttqAKgp0vFgh958";    // FamilyNest2 Localization items
-//            string royalTextId = "1Esa52xsi64tPOgqakibdx_ISvOroyXKajDu3-DQwbp8";    // FamilyNest2 Game Text Localization
+            string royalItemsId = "1Cfb3MR8pmKBlIi4rSwhkY157A9E9ttqAKgp0vFgh958";    // FamilyNest2 Localization items
+            string royalTextId = "1Esa52xsi64tPOgqakibdx_ISvOroyXKajDu3-DQwbp8";    // FamilyNest2 Game Text Localization
 
 //            string farmdaysItemsId = "1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ";    // Farmdays items copy
 //            string farmdaysTextId = "119Ep1_oLQRJz7akYR6YES43-fzfkHYswumJvRIJ2xh4";    // Farmdays texts copy
@@ -30,16 +30,16 @@ namespace TranslationsDocGen
 
 
 //            service.UploadMissingLocaleSpreadsheet(testId, locale: "ja_JP", defaultLocale: "ru_RU", newSpreadsheetTitle: "ApiTestCopy2"); 
-//            service.UploadMissingLocaleSpreadsheet(mainItemsId, "ja_JP", "FN2_Items_2019_01_17"); 
-//            service.UploadMissingLocaleSpreadsheet(mainTextId, "ja_JP", "FN2_Text_2019_01_17"); 
+            service.UploadMissingLocaleSpreadsheet(royalItemsId, "ja_JP", "en_US", "FN2_Items_2019_01_29_9eac592"); 
+            service.UploadMissingLocaleSpreadsheet(royalTextId, "ja_JP", "en_US", "FN2_Text_2019_01_29_9eac592"); 
 
 
-                var spreadsheetFrom = service.DownloadSpredsheet(test2Id);
-                var spreadsheetTo = service.DownloadSpredsheet(testId);
-
-                var requests =
-                    SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ja_JP", false);
-                spreadsheetTo.BatchUpdate(requests);
+//                var spreadsheetFrom = service.DownloadSpredsheet(test2Id);
+//                var spreadsheetTo = service.DownloadSpredsheet(testId);
+//
+//                var requests =
+//                    SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ja_JP", false);
+//                spreadsheetTo.BatchUpdate(requests);
 
 //            var sheetFrom = spreadsheetFrom.SheetByTitle("Quests")[0];
 //            var sheetTo = spreadsheetTo.SheetByTitle("Quests")[0];
