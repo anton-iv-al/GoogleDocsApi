@@ -325,7 +325,7 @@ namespace TranslationsDocGen.SocialInfinite
                     .GroupBy(pair => pair.key)
                     .Select(group =>
                     {
-                        if (!isSubColumn && !String.IsNullOrWhiteSpace(group.Key) && group.Count() > 1)
+                        if (!isSubColumn && !IsEmptyCell(group.Key) && group.Count() > 1)
                         {
                             throw new Exception($"Double key = {group.Key}, sheet = {sheet.Title()}");
                         }
