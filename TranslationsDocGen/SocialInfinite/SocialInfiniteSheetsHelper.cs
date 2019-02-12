@@ -141,7 +141,8 @@ namespace TranslationsDocGen.SocialInfinite
                 .Select(sheet => new SheetData()
                 {
                     Title = sheet.Title(),
-                    Values = sheet.RowsWithoutLocale(locale, defaultLocale)
+                    Values = sheet.RowsWithoutLocale(locale, defaultLocale),
+                    GridProperties = new GridProperties(){FrozenRowCount = 1},
                 })
                 .Where(s => s.Values.Count > 2)
                 .ToList();

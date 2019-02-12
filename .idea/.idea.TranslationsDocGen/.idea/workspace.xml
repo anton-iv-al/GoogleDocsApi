@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24923f21-ec53-4cb4-beba-b8d3cfab7349" name="Default" comment="copy spreadsheet">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TranslationsDocGen/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TranslationsDocGen/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TranslationsDocGen/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="24923f21-ec53-4cb4-beba-b8d3cfab7349" name="Default" comment="out of range fix">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TranslationsDocGen/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TranslationsDocGen/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TranslationsDocGen/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationsDocGen/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TranslationsDocGen/SheetData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationsDocGen/SheetData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,30 +20,29 @@
       <file leaf-file-name="Program.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TranslationsDocGen/Program.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+            <state relative-caret-position="347">
+              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
               <folding>
-                <marker date="1548781750745" expanded="false" signature="6:170" ph="..." />
-                <marker date="1548781750745" expanded="true" signature="200:2424" ph="{...}" />
-                <marker date="1548781750745" expanded="true" signature="220:2422" ph="{...}" />
-                <marker date="1548781750745" expanded="true" signature="267:2406" ph="{...}" />
-                <marker date="1548781750745" expanded="true" signature="381:2355" ph="{...}" />
-                <marker date="1548781750745" expanded="true" signature="396:581" ph="/* string testId = &quot;1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8&quot;; // test ... */" />
-                <marker date="1548781750745" expanded="true" signature="825:1287" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
-                <marker date="1548781750745" expanded="true" signature="1665:2324" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(test2Id); ... */" />
+                <marker date="1549975178114" expanded="false" signature="6:170" ph="..." />
+                <marker date="1549975178114" expanded="true" signature="200:2508" ph="{...}" />
+                <marker date="1549975178114" expanded="true" signature="220:2506" ph="{...}" />
+                <marker date="1549975178114" expanded="true" signature="267:2490" ph="{...}" />
+                <marker date="1549975178114" expanded="true" signature="381:2439" ph="{...}" />
+                <marker date="1549975178114" expanded="true" signature="912:1374" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
+                <marker date="1549975178114" expanded="true" signature="1516:1751" ph="/* service.UploadMissingLocaleSpreadsheet(royalItemsId, &quot;ja_JP&quot;, &quot;en_US&quot;, &quot;FN2_Items_2019_01_29_9eac592&quot;); ... */" />
+                <marker date="1549975178114" expanded="true" signature="1754:2424" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(translateDocId); ... */" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocalizationItem.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LocalizationItem.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationItem.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+            <state relative-caret-position="405">
+              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
               <folding>
                 <marker date="1548782322111" expanded="false" signature="6:66" ph="..." />
-                <marker date="1548782322111" expanded="true" signature="111:3006" ph="{...}" />
                 <marker date="1548782322111" expanded="true" signature="147:3004" ph="{...}" />
                 <marker date="1548782322111" expanded="true" signature="501:2066" ph="{...}" />
                 <marker date="1548782322111" expanded="true" signature="574:726" ph="{...}" />
@@ -59,90 +58,65 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SocialInfiniteSheetsHelper.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SocialInfiniteSheetsHelper.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
+            <state relative-caret-position="290">
+              <caret line="146" column="47" lean-forward="true" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
               <folding>
-                <marker date="1548068582460" expanded="false" signature="6:160" ph="..." />
-                <marker date="1548068582460" expanded="true" signature="205:15307" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="258:15305" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="383:495" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="561:746" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="870:1451" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="1066:1233" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="1250:1416" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="1575:2309" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="2136:2274" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="2190:2260" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="2434:2605" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="2740:3040" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="3262:4520" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="3325:4466" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="3477:4405" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="3882:4387" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="3974:4152" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="4586:4655" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="4748:4933" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="5129:5843" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="5340:5478" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="5608:5738" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="6004:6456" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="6151:6412" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="6588:6892" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="6638:6752" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="6769:6882" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="7029:7847" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="7279:7716" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="7413:7702" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="7990:10088" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="8114:8405" ph="/* if (textFrom.Translation(&quot;ru_RU&quot;).IsEmptyCell()) ... */" />
-                <marker date="1548068582460" expanded="true" signature="8478:8691" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="8905:9894" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="9068:9244" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="9423:9649" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="9911:10078" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="10198:11120" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="10247:10402" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="10419:11110" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="10622:10804" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="11258:11586" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="11720:12589" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="12186:12362" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="12890:14055" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="12958:13080" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="13149:13885" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="13407:13787" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="13533:13688" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="14287:15299" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="14610:14794" ph="{...}" />
-                <marker date="1548068582460" expanded="true" signature="14871:15234" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SpreadsheetAdapter.cs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SpreadsheetAdapter.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-              <folding>
-                <marker date="1548068582476" expanded="false" signature="6:129" ph="..." />
-                <marker date="1548068582476" expanded="true" signature="197:3427" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="386:478" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="579:902" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="627:858" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="1020:1293" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="1071:1169" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="1730:1741" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="1788:2269" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="1842:2259" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="1984:2207" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="2051:2147" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="2327:2620" ph="{...}" />
-                <marker date="1548068582476" expanded="true" signature="2622:3420" ph="/* public Request AppendRequest(SheetData sheet) ... */" />
+                <marker date="1549975389830" expanded="false" signature="6:160" ph="..." />
+                <marker date="1549975389830" expanded="true" signature="205:15373" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="258:15371" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="383:495" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="561:746" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="870:1451" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="1066:1233" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="1250:1416" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="1575:2309" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="2136:2274" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="2190:2260" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="2434:2605" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="2740:3040" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="3262:4520" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="3325:4466" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="3477:4405" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="3882:4387" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="3974:4152" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="4586:4655" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="4748:4933" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="5129:5923" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="5340:5558" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="5688:5818" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="6084:6536" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="6231:6492" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="6668:6972" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="6718:6832" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="6849:6962" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="7109:7927" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="7359:7796" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="7493:7782" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="8070:10168" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="8194:8485" ph="/* if (textFrom.Translation(&quot;ru_RU&quot;).IsEmptyCell()) ... */" />
+                <marker date="1549975389830" expanded="true" signature="8558:8771" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="8985:9974" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="9148:9324" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="9503:9729" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="9991:10158" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="10278:11200" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="10327:10482" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="10499:11190" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="10702:10884" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="11338:11666" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="11800:12669" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="12266:12442" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="12970:14121" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="13038:13160" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="13229:13951" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="13487:13853" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="13599:13754" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="14353:15365" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="14676:14860" ph="{...}" />
+                <marker date="1549975389830" expanded="true" signature="14937:15300" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -151,10 +125,11 @@
       <file leaf-file-name="SheetAdapter.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="60">
+              <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
               <folding>
                 <marker date="1547735799870" expanded="false" signature="6:96" ph="..." />
+                <marker date="1547735799870" expanded="true" signature="126:1616" ph="{...}" />
                 <marker date="1547735799870" expanded="true" signature="158:1614" ph="{...}" />
                 <marker date="1547735799870" expanded="true" signature="511:634" ph="{...}" />
                 <marker date="1547735799870" expanded="true" signature="726:1066" ph="{...}" />
@@ -170,15 +145,52 @@
       <file leaf-file-name="GoogleSheetsHelper.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="302">
+              <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
               <folding>
-                <marker date="1548068582375" expanded="false" signature="6:12" ph="..." />
-                <marker date="1548068582375" expanded="true" signature="5748:5959" ph="{...}" />
-                <marker date="1548068582375" expanded="true" signature="5748:6137" ph="{...}" />
-                <marker date="1548068582375" expanded="true" signature="5790:5845" ph="{...}" />
-                <marker date="1548068582375" expanded="true" signature="5862:5949" ph="{...}" />
-                <marker date="1548068582375" expanded="true" signature="6045:6123" ph="{...}" />
+                <marker date="1549975125242" expanded="false" signature="6:259" ph="..." />
+                <marker date="1549975125242" expanded="true" signature="289:6174" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="334:6172" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="395:1791" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="418:691" ph="/* to generate credentials.json ... */" />
+                <marker date="1549975125242" expanded="true" signature="847:1526" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="878:1051" ph="/* The file token.json stores the user's access and refresh tokens, and is created ... */" />
+                <marker date="1549975125242" expanded="true" signature="1662:1779" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="1903:2116" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="2249:3282" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="2369:2677" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="2834:3232" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="2928:3127" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="3417:4105" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="3651:4071" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="3739:4015" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="4200:4466" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="4311:4432" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="4544:5173" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="4642:5135" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="4756:5082" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="4943:5056" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="5267:5576" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="5420:5475" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="5492:5566" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="5676:5994" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="5825:5880" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="5897:5984" ph="{...}" />
+                <marker date="1549975125242" expanded="true" signature="6080:6158" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SheetData.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SheetData.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+              <folding>
+                <marker date="1549975125356" expanded="true" signature="6:67" ph="..." />
+                <marker date="1549975125356" expanded="true" signature="97:297" ph="{...}" />
+                <marker date="1549975125356" expanded="true" signature="126:295" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -209,9 +221,11 @@
       <find>ru_R</find>
       <find>copyi</find>
       <find>console</find>
-      <find>IsNullOrWhiteSpace</find>
       <find>TODO</find>
       <find>row out</find>
+      <find>empty Loca</find>
+      <find>copying</find>
+      <find>IsNullOrWhiteSpace</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -220,34 +234,34 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57BCAF4A-D642-4FCE-8984-CC360EC0F595/5/BaseClientService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SpreadsheetAdapter.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SpreadsheetAdapter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TranslationsDocGen/Properties/AssemblyInfo.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationItem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SheetData.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationText.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TranslationsDocGen/Logger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/365C8577-FE72-4775-9B49-6DED9252F3E3/1/Google.Apis.Sheets.v4.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/TranslationsDocGen/SheetData.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/SheetWrapper.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/SpreadsheetWrapper.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/LocalizationItem.cs" />
-        <option value="$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/SpreadsheetAdapter.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/SocialInfiniteSheetsHelper.cs" />
-        <option value="$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationText.cs" />
-        <option value="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/Logger.cs" />
-        <option value="$PROJECT_DIR$/TranslationsDocGen/Program.cs" />
         <option value="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationItem.cs" />
+        <option value="$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs" />
+        <option value="$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs" />
+        <option value="$PROJECT_DIR$/TranslationsDocGen/SheetData.cs" />
+        <option value="$PROJECT_DIR$/TranslationsDocGen/Program.cs" />
+        <option value="$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs" />
       </list>
     </option>
   </component>
@@ -272,7 +286,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="SolutionExplorer">
         <subPane>
           <expand>
@@ -280,17 +293,13 @@
               <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
               <item name="TranslationsDocGen (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
             </path>
-            <path>
-              <item name="" type="13324e5d:SolutionExplorerViewPane$ProjectViewPaneTreeStructure$createRoot$1" />
-              <item name="TranslationsDocGen (1 project)" type="977d5f41:SolutionExplorerNodeRider" />
-              <item name="TranslationsDocGen" type="977d5f41:SolutionExplorerNodeRider" />
-            </path>
           </expand>
           <select />
         </subPane>
         <option name="show-file-system" value="false" />
         <option name="show-all-items" value="false" />
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -338,7 +347,10 @@
       <updated>1547670420206</updated>
       <workItem from="1547670422738" duration="21537000" />
       <workItem from="1547903631986" duration="21816000" />
-      <workItem from="1548780902175" duration="2198000" />
+      <workItem from="1548780902175" duration="2303000" />
+      <workItem from="1549887065467" duration="2940000" />
+      <workItem from="1549970815030" duration="296000" />
+      <workItem from="1549972691520" duration="2328000" />
     </task>
     <task id="LOCAL-00001" summary="upload">
       <created>1547688916067</created>
@@ -417,11 +429,25 @@
       <option name="project" value="LOCAL" />
       <updated>1547922696415</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="out of range fix">
+      <created>1548783182234</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1548783182234</updated>
+    </task>
+    <task id="LOCAL-00013" summary="comment fix">
+      <created>1549890410061</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1549890410061</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93843000" />
+    <option name="totallyTimeSpent" value="99512000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -438,28 +464,28 @@
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32988048" />
       <window_info anchor="right" id="Errors In Solution" order="4" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="8" sideWeight="0.5010661" side_tool="true" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5026652" side_tool="true" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Unit Tests" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49946696" weight="0.32960895" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49840087" weight="0.32960895" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="NuGet" order="8" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18283582" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18923241" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="8" weight="0.32960895" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4989339" visible="true" weight="0.4" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49733475" visible="true" weight="0.4" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32828686" />
-      <window_info anchor="bottom" id="Messages" order="8" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +533,9 @@
     <MESSAGE value="errors" />
     <MESSAGE value="LocalizationText refactor" />
     <MESSAGE value="canRewrite" />
-    <option name="LAST_COMMIT_MESSAGE" value="canRewrite" />
+    <MESSAGE value="out of range fix" />
+    <MESSAGE value="comment fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="comment fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -650,14 +678,14 @@
         <state>
           <caret column="13" selection-start-column="13" selection-end-column="13" />
           <folding>
-            <marker date="1548781750745" expanded="false" signature="6:170" ph="..." />
-            <marker date="1548781750745" expanded="true" signature="200:2424" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="220:2422" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="267:2406" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="381:2355" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="396:581" ph="/* string testId = &quot;1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8&quot;; // test ... */" />
-            <marker date="1548781750745" expanded="true" signature="825:1287" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
-            <marker date="1548781750745" expanded="true" signature="1665:2324" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(test2Id); ... */" />
+            <marker date="1549975178114" expanded="false" signature="6:170" ph="..." />
+            <marker date="1549975178114" expanded="true" signature="200:2508" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="220:2506" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="267:2490" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="381:2439" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="912:1374" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
+            <marker date="1549975178114" expanded="true" signature="1516:1751" ph="/* service.UploadMissingLocaleSpreadsheet(royalItemsId, &quot;ja_JP&quot;, &quot;en_US&quot;, &quot;FN2_Items_2019_01_29_9eac592&quot;); ... */" />
+            <marker date="1549975178114" expanded="true" signature="1754:2424" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(translateDocId); ... */" />
           </folding>
         </state>
       </provider>
@@ -695,14 +723,14 @@
         <state relative-caret-position="420">
           <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding>
-            <marker date="1548781750745" expanded="false" signature="6:170" ph="..." />
-            <marker date="1548781750745" expanded="true" signature="200:2424" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="220:2422" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="267:2406" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="381:2355" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="396:581" ph="/* string testId = &quot;1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8&quot;; // test ... */" />
-            <marker date="1548781750745" expanded="true" signature="825:1287" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
-            <marker date="1548781750745" expanded="true" signature="1665:2324" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(test2Id); ... */" />
+            <marker date="1549975178114" expanded="false" signature="6:170" ph="..." />
+            <marker date="1549975178114" expanded="true" signature="200:2508" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="220:2506" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="267:2490" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="381:2439" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="912:1374" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
+            <marker date="1549975178114" expanded="true" signature="1516:1751" ph="/* service.UploadMissingLocaleSpreadsheet(royalItemsId, &quot;ja_JP&quot;, &quot;en_US&quot;, &quot;FN2_Items_2019_01_29_9eac592&quot;); ... */" />
+            <marker date="1549975178114" expanded="true" signature="1754:2424" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(translateDocId); ... */" />
           </folding>
         </state>
       </provider>
@@ -726,14 +754,14 @@
         <state relative-caret-position="165">
           <caret line="11" column="55" lean-forward="true" selection-start-line="11" selection-start-column="55" selection-end-line="11" selection-end-column="55" />
           <folding>
-            <marker date="1548781750745" expanded="false" signature="6:170" ph="..." />
-            <marker date="1548781750745" expanded="true" signature="200:2424" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="220:2422" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="267:2406" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="381:2355" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="396:581" ph="/* string testId = &quot;1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8&quot;; // test ... */" />
-            <marker date="1548781750745" expanded="true" signature="825:1287" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
-            <marker date="1548781750745" expanded="true" signature="1665:2324" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(test2Id); ... */" />
+            <marker date="1549975178114" expanded="false" signature="6:170" ph="..." />
+            <marker date="1549975178114" expanded="true" signature="200:2508" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="220:2506" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="267:2490" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="381:2439" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="912:1374" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
+            <marker date="1549975178114" expanded="true" signature="1516:1751" ph="/* service.UploadMissingLocaleSpreadsheet(royalItemsId, &quot;ja_JP&quot;, &quot;en_US&quot;, &quot;FN2_Items_2019_01_29_9eac592&quot;); ... */" />
+            <marker date="1549975178114" expanded="true" signature="1754:2424" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(translateDocId); ... */" />
           </folding>
         </state>
       </provider>
@@ -795,14 +823,14 @@
         <state relative-caret-position="420">
           <caret line="30" column="13" lean-forward="true" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding>
-            <marker date="1548781750745" expanded="false" signature="6:170" ph="..." />
-            <marker date="1548781750745" expanded="true" signature="200:2424" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="220:2422" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="267:2406" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="381:2355" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="396:581" ph="/* string testId = &quot;1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8&quot;; // test ... */" />
-            <marker date="1548781750745" expanded="true" signature="825:1287" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
-            <marker date="1548781750745" expanded="true" signature="1665:2324" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(test2Id); ... */" />
+            <marker date="1549975178114" expanded="false" signature="6:170" ph="..." />
+            <marker date="1549975178114" expanded="true" signature="200:2508" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="220:2506" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="267:2490" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="381:2439" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="912:1374" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
+            <marker date="1549975178114" expanded="true" signature="1516:1751" ph="/* service.UploadMissingLocaleSpreadsheet(royalItemsId, &quot;ja_JP&quot;, &quot;en_US&quot;, &quot;FN2_Items_2019_01_29_9eac592&quot;); ... */" />
+            <marker date="1549975178114" expanded="true" signature="1754:2424" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(translateDocId); ... */" />
           </folding>
         </state>
       </provider>
@@ -811,20 +839,6 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/57BCAF4A-D642-4FCE-8984-CC360EC0F595/ce/12f004e2/IClientServiceRequest`1.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57BCAF4A-D642-4FCE-8984-CC360EC0F595/7/ClientServiceRequest.cs" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2979110A-DCF4-4908-8C79-E7203BD2BF18/6a/20f95be9/ExceptionDispatchInfo.cs" />
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4245">
-          <caret line="283" column="30" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SheetData.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/57BCAF4A-D642-4FCE-8984-CC360EC0F595/5/BaseClientService.cs" />
     <entry file="file://$PROJECT_DIR$/TranslationsDocGen/credentials.json">
       <provider selected="true" editor-type-id="text-editor">
@@ -840,62 +854,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SpreadsheetAdapter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
-          <folding>
-            <marker date="1548068582476" expanded="false" signature="6:129" ph="..." />
-            <marker date="1548068582476" expanded="true" signature="197:3427" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="386:478" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="579:902" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="627:858" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="1020:1293" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="1071:1169" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="1730:1741" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="1788:2269" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="1842:2259" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="1984:2207" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="2051:2147" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="2327:2620" ph="{...}" />
-            <marker date="1548068582476" expanded="true" signature="2622:3420" ph="/* public Request AppendRequest(SheetData sheet) ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/42073FCF-9EFD-4A92-A6F0-A4CC94099FE3/a4/0357aa5d/IList`1.cs" />
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <marker date="1547735799870" expanded="false" signature="6:96" ph="..." />
-            <marker date="1547735799870" expanded="true" signature="158:1614" ph="{...}" />
-            <marker date="1547735799870" expanded="true" signature="511:634" ph="{...}" />
-            <marker date="1547735799870" expanded="true" signature="726:1066" ph="{...}" />
-            <marker date="1547735799870" expanded="true" signature="769:1027" ph="{...}" />
-            <marker date="1547735799870" expanded="true" signature="1177:1313" ph="{...}" />
-            <marker date="1547735799870" expanded="true" signature="1391:1608" ph="{...}" />
-            <marker date="1547735799870" expanded="true" signature="1465:1524" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
-          <folding>
-            <marker date="1548068582375" expanded="false" signature="6:12" ph="..." />
-            <marker date="1548068582375" expanded="true" signature="5748:5959" ph="{...}" />
-            <marker date="1548068582375" expanded="true" signature="5748:6137" ph="{...}" />
-            <marker date="1548068582375" expanded="true" signature="5790:5845" ph="{...}" />
-            <marker date="1548068582375" expanded="true" signature="5862:5949" ph="{...}" />
-            <marker date="1548068582375" expanded="true" signature="6045:6123" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationText.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -911,92 +870,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="110" column="20" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="20" />
-          <folding>
-            <marker date="1548068582460" expanded="false" signature="6:160" ph="..." />
-            <marker date="1548068582460" expanded="true" signature="205:15307" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="258:15305" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="383:495" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="561:746" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="870:1451" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="1066:1233" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="1250:1416" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="1575:2309" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="2136:2274" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="2190:2260" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="2434:2605" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="2740:3040" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="3262:4520" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="3325:4466" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="3477:4405" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="3882:4387" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="3974:4152" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="4586:4655" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="4748:4933" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="5129:5843" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="5340:5478" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="5608:5738" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="6004:6456" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="6151:6412" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="6588:6892" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="6638:6752" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="6769:6882" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="7029:7847" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="7279:7716" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="7413:7702" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="7990:10088" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="8114:8405" ph="/* if (textFrom.Translation(&quot;ru_RU&quot;).IsEmptyCell()) ... */" />
-            <marker date="1548068582460" expanded="true" signature="8478:8691" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="8905:9894" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="9068:9244" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="9423:9649" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="9911:10078" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="10198:11120" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="10247:10402" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="10419:11110" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="10622:10804" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="11258:11586" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="11720:12589" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="12186:12362" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="12890:14055" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="12958:13080" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="13149:13885" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="13407:13787" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="13533:13688" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="14287:15299" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="14610:14794" ph="{...}" />
-            <marker date="1548068582460" expanded="true" signature="14871:15234" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/Program.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-          <folding>
-            <marker date="1548781750745" expanded="false" signature="6:170" ph="..." />
-            <marker date="1548781750745" expanded="true" signature="200:2424" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="220:2422" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="267:2406" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="381:2355" ph="{...}" />
-            <marker date="1548781750745" expanded="true" signature="396:581" ph="/* string testId = &quot;1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8&quot;; // test ... */" />
-            <marker date="1548781750745" expanded="true" signature="825:1287" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
-            <marker date="1548781750745" expanded="true" signature="1665:2324" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(test2Id); ... */" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/LocalizationItem.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="35" column="35" lean-forward="true" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
+        <state relative-caret-position="405">
+          <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
           <folding>
             <marker date="1548782322111" expanded="false" signature="6:66" ph="..." />
-            <marker date="1548782322111" expanded="true" signature="111:3006" ph="{...}" />
             <marker date="1548782322111" expanded="true" signature="147:3004" ph="{...}" />
             <marker date="1548782322111" expanded="true" signature="501:2066" ph="{...}" />
             <marker date="1548782322111" expanded="true" signature="574:726" ph="{...}" />
@@ -1007,6 +886,185 @@
             <marker date="1548782322111" expanded="true" signature="2553:2665" ph="{...}" />
             <marker date="1548782322111" expanded="true" signature="2777:2998" ph="{...}" />
             <marker date="1548782322111" expanded="true" signature="2891:2963" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SheetAdapter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <marker date="1547735799870" expanded="false" signature="6:96" ph="..." />
+            <marker date="1547735799870" expanded="true" signature="126:1616" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="158:1614" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="511:634" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="726:1066" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="769:1027" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="1177:1313" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="1391:1608" ph="{...}" />
+            <marker date="1547735799870" expanded="true" signature="1465:1524" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SheetData.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+          <folding>
+            <marker date="1549975125356" expanded="true" signature="6:67" ph="..." />
+            <marker date="1549975125356" expanded="true" signature="97:297" ph="{...}" />
+            <marker date="1549975125356" expanded="true" signature="126:295" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/GoogleSheetsHelper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="58" column="48" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+          <folding>
+            <marker date="1549975125242" expanded="false" signature="6:259" ph="..." />
+            <marker date="1549975125242" expanded="true" signature="289:6174" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="334:6172" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="395:1791" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="418:691" ph="/* to generate credentials.json ... */" />
+            <marker date="1549975125242" expanded="true" signature="847:1526" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="878:1051" ph="/* The file token.json stores the user's access and refresh tokens, and is created ... */" />
+            <marker date="1549975125242" expanded="true" signature="1662:1779" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="1903:2116" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="2249:3282" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="2369:2677" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="2834:3232" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="2928:3127" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="3417:4105" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="3651:4071" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="3739:4015" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="4200:4466" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="4311:4432" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="4544:5173" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="4642:5135" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="4756:5082" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="4943:5056" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="5267:5576" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="5420:5475" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="5492:5566" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="5676:5994" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="5825:5880" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="5897:5984" ph="{...}" />
+            <marker date="1549975125242" expanded="true" signature="6080:6158" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SpreadsheetAdapter.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+          <folding>
+            <marker date="1548068582476" expanded="false" signature="6:129" ph="..." />
+            <marker date="1548068582476" expanded="true" signature="159:3429" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="197:3427" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="386:478" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="579:902" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="627:858" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1020:1293" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1071:1169" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1426:1741" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1480:1605" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1788:2269" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1842:2259" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="1984:2207" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="2051:2147" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="2327:2620" ph="{...}" />
+            <marker date="1548068582476" expanded="true" signature="2622:3420" ph="/* public Request AppendRequest(SheetData sheet) ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/Program.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding>
+            <marker date="1549975178114" expanded="false" signature="6:170" ph="..." />
+            <marker date="1549975178114" expanded="true" signature="200:2508" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="220:2506" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="267:2490" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="381:2439" ph="{...}" />
+            <marker date="1549975178114" expanded="true" signature="912:1374" ph="/* string farmdaysItemsId = &quot;1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ&quot;;    // Farmdays items copy ... */" />
+            <marker date="1549975178114" expanded="true" signature="1516:1751" ph="/* service.UploadMissingLocaleSpreadsheet(royalItemsId, &quot;ja_JP&quot;, &quot;en_US&quot;, &quot;FN2_Items_2019_01_29_9eac592&quot;); ... */" />
+            <marker date="1549975178114" expanded="true" signature="1754:2424" ph="/* var spreadsheetFrom = service.DownloadSpredsheet(translateDocId); ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TranslationsDocGen/SocialInfinite/SocialInfiniteSheetsHelper.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="146" column="47" lean-forward="true" selection-start-line="146" selection-start-column="47" selection-end-line="146" selection-end-column="47" />
+          <folding>
+            <marker date="1549975389830" expanded="false" signature="6:160" ph="..." />
+            <marker date="1549975389830" expanded="true" signature="205:15373" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="258:15371" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="383:495" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="561:746" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="870:1451" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="1066:1233" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="1250:1416" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="1575:2309" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="2136:2274" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="2190:2260" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="2434:2605" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="2740:3040" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="3262:4520" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="3325:4466" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="3477:4405" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="3882:4387" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="3974:4152" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="4586:4655" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="4748:4933" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="5129:5923" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="5340:5558" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="5688:5818" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="6084:6536" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="6231:6492" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="6668:6972" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="6718:6832" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="6849:6962" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="7109:7927" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="7359:7796" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="7493:7782" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="8070:10168" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="8194:8485" ph="/* if (textFrom.Translation(&quot;ru_RU&quot;).IsEmptyCell()) ... */" />
+            <marker date="1549975389830" expanded="true" signature="8558:8771" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="8985:9974" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="9148:9324" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="9503:9729" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="9991:10158" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="10278:11200" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="10327:10482" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="10499:11190" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="10702:10884" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="11338:11666" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="11800:12669" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="12266:12442" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="12970:14121" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="13038:13160" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="13229:13951" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="13487:13853" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="13599:13754" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="14353:15365" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="14676:14860" ph="{...}" />
+            <marker date="1549975389830" expanded="true" signature="14937:15300" ph="{...}" />
           </folding>
         </state>
       </provider>

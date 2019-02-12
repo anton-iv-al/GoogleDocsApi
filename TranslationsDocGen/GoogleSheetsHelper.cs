@@ -63,7 +63,7 @@ namespace TranslationsDocGen
                 {
                     Properties = new SpreadsheetProperties() {Title = title},
                     Sheets = sheets
-                        .Select(s => new Sheet() {Properties = new SheetProperties() {Title = s.Title}})
+                        .Select(s => new Sheet() {Properties = new SheetProperties() {Title = s.Title, GridProperties = s.GridProperties}})
                         .ToList(),
                 })
                 .Execute();
