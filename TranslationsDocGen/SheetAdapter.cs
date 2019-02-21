@@ -50,5 +50,10 @@ namespace TranslationsDocGen
             
             return UpdateRangeRequest(values, row, column);
         }
+
+        public Request AppendRequest(IList<IList<object>> values)
+        {
+            return GoogleSheetsHelper.AppendRequest(values, this.Id());
+        }
     }
 }

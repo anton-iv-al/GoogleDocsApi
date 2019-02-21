@@ -12,6 +12,39 @@ namespace TranslationsDocGen
 
         static void Main(string[] args)
         {
+            DialogMain();
+        }
+
+        static void DialogMain()
+        {
+            var service = GoogleSheetsHelper.Service();
+            
+            
+            int startId = 230212;
+            string dialogKey = "dialog_shipment1";
+            
+
+            string spredsheetId = "1qdG06KX6-60yJFI-umM9tMvZH7IjvS_Gr2QC0HMPhqw";
+            string sheetName = "Dialogs";
+            
+            var characters = new Dictionary<string, string>()
+            {
+                {"Дональд", "task_supplier"},
+                {"Кэтрин", "default_character"},
+                {"Андервуд", "english_customer_character1"},
+                {"Марит", "indian_customer_character1"},
+                {"Митрофан", "russian_customer_character1"},
+                {"Липкий", "pirate_jack_character"},
+            };
+            string bigDialogMarker = "крупно";
+            
+            service.GenerateDialog(spredsheetId, sheetName, startId, dialogKey, characters, bigDialogMarker);
+        }
+
+        
+
+        static void TransationMain()
+        {
             var service = GoogleSheetsHelper.Service();
 
             using (new FileLogListener("log"))
@@ -31,9 +64,9 @@ namespace TranslationsDocGen
 //            string mainTextJapanId = "1v6NVFcHYn1mf9SmwpsojOYKlVnyC4R30o1YfeQJGYzo";    // Japan Items Localization
 
 
-            service.UploadMissingLocaleSpreadsheet(testId, locale: "ja_JP", defaultLocale: "ru_RU", newSpreadsheetTitle: "ApiTestCopy2"); 
-//            service.UploadMissingLocaleSpreadsheet(royalItemsId, "ja_JP", "en_US", "FN2_Items_2019_01_29_9eac592"); 
-//            service.UploadMissingLocaleSpreadsheet(royalTextId, "ja_JP", "en_US", "FN2_Text_2019_01_29_9eac592"); 
+//            service.UploadMissingLocaleSpreadsheet(testId, locale: "ja_JP", defaultLocale: "ru_RU", newSpreadsheetTitle: "ApiTestCopy2"); 
+            service.UploadMissingLocaleSpreadsheet(royalItemsId, "ja_JP", "en_US", "FN2_Items_2019_02_13"); 
+            service.UploadMissingLocaleSpreadsheet(royalTextId, "ja_JP", "en_US", "FN2_Text_2019_02_13"); 
 
 
 //                var spreadsheetFrom = service.DownloadSpredsheet(translateDocId);
@@ -53,8 +86,6 @@ namespace TranslationsDocGen
 
 
             Console.WriteLine("Done");
-        }
-
-        
+        }   
     }
 }

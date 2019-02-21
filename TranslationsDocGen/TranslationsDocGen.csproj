@@ -73,9 +73,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SheetData.cs" />
     <Compile Include="SheetAdapter.cs" />
+    <Compile Include="SocialInfinite\DialogItem.cs" />
     <Compile Include="SocialInfinite\LocalizationItem.cs" />
     <Compile Include="SocialInfinite\LocalizationText.cs" />
+    <Compile Include="SocialInfinite\SocialInfiniteDialogHelper.cs" />
     <Compile Include="SocialInfinite\SocialInfiniteSheetsHelper.cs" />
+    <Compile Include="SocialInfinite\Speech.cs" />
     <Compile Include="SpreadsheetAdapter.cs" />
   </ItemGroup>
   <ItemGroup>

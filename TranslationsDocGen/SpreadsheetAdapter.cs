@@ -90,6 +90,11 @@ namespace TranslationsDocGen
                 .Execute();
         }
 
+        public void SingleUpdate(Request request)
+        {
+            this.BatchUpdate(new List<Request>{ request });
+        }
+
 //        public Request AppendRequest(SheetData sheet)
 //        {
 //            var request = _service.Spreadsheets.Values.Append(
