@@ -22,7 +22,6 @@ namespace TranslationsDocGen.SocialInfinite
             foreach (var dialogItem in dialogItems)
             {
                 Console.WriteLine(dialogItem.Config());
-                Console.WriteLine();
             }
 
             spreadsheet.BatchUpdate(

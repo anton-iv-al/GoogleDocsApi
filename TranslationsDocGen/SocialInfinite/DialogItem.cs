@@ -30,7 +30,7 @@ namespace TranslationsDocGen.SocialInfinite
                 res.Append(str + "\n");
             }
 
-            append(0, ItemName);
+            append(0, ItemName + ":");
             append(1, "<<: *default_dialog");
             append(1, $"id: {this.Id}");
             append(1, $"big_dialog: {this.IsBig.ToString().ToLower()}");
@@ -49,7 +49,7 @@ namespace TranslationsDocGen.SocialInfinite
 
         public IList<IList<object>> Localization()
         {
-            return this.Speeches.SelectMany((s, i) => s.Localization(this.ItemName, i)).ToList();
+            return this.Speeches.SelectMany((s, i) => s.Localization(this.ItemName, i+1)).ToList();
         }
     }
 }

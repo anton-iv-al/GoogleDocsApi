@@ -20,8 +20,8 @@ namespace TranslationsDocGen
             var service = GoogleSheetsHelper.Service();
             
             
-            int startId = 230212;
-            string dialogKey = "dialog_shipment1";
+            int startId = 230234;
+            string dialogKey = "dialog_shipment_extension3";
             
 
             string spredsheetId = "1qdG06KX6-60yJFI-umM9tMvZH7IjvS_Gr2QC0HMPhqw";
