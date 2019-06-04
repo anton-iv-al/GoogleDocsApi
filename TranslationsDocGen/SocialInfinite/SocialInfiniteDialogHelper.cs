@@ -9,14 +9,16 @@ namespace TranslationsDocGen.SocialInfinite
 {
     public static class SocialInfiniteDialogHelper
     {
-        public static void GenerateDialog(this SheetsService service, string spredsheetId, string sheetName, int startId, string dialogKey, Dictionary<string, string> characters, string bigDialogMarker)
+        public static void GenerateDialog(this SheetsService service, string spredsheetId, string sheetName,
+            int startId, string dialogKey, Dictionary<string, string> characters, string bigDialogMarker,
+            bool isSpeechOnTwoRows)
         {
             var spreadsheet = service.DownloadSpredsheet(spredsheetId);
             var rowDialogSheet = spreadsheet.SheetByTitle(sheetName);
 
             var column = 0;
             
-            var speeches = Speeches(rowDialogSheet, column, characters, bigDialogMarker);
+            var speeches = Speeches(rowDialogSheet, column, characters, bigDialogMarker, isSpeechOnTwoRows);
             var dialogItems = DialogItems(speeches, startId, dialogKey);
 
             foreach (var dialogItem in dialogItems)
@@ -31,7 +33,8 @@ namespace TranslationsDocGen.SocialInfinite
             );
         }
 
-        private static IEnumerable<Speech> Speeches(SheetAdapter sheet, int column, Dictionary<string, string> characters, string bigDialogMarker)
+        private static IEnumerable<Speech> Speeches(SheetAdapter sheet, int column,
+            Dictionary<string, string> characters, string bigDialogMarker, bool isSpeechOnTwoRows)
         {
             var res = new List<Speech>();
             
@@ -42,8 +45,12 @@ namespace TranslationsDocGen.SocialInfinite
                     continue;
                 }
                 
-                res.Add(new Speech(sheet, row, column, characters, bigDialogMarker));
-                row += 2;
+                res.Add(new Speech(sheet, row, column, characters, bigDialogMarker, isSpeechOnTwoRows));
+                
+                if (isSpeechOnTwoRows)
+                {
+                    row += 1;
+                }
             }
 
             return res;

@@ -9,11 +9,25 @@ namespace TranslationsDocGen.SocialInfinite {
         public readonly string Text;
         public readonly bool IsBig;
 
-        public Speech(SheetAdapter sheet, int startRow, int column, Dictionary<string, string> characters, string bigDialogMarker)
+        public Speech(SheetAdapter sheet, int startRow, int column, Dictionary<string, string> characters,
+            string bigDialogMarker, bool isSpeechOnTwoRows)
         {
-            Text = sheet.CellValue(startRow + 1, column);
-            
-            string nameCell = sheet.CellValue(startRow, column);
+            string nameCell;
+                
+            if (isSpeechOnTwoRows)
+            {
+                Text = sheet.CellValue(startRow + 1, column);
+                nameCell = sheet.CellValue(startRow, column);
+            }
+            else
+            {
+                string wholeCell = sheet.CellValue(startRow, column);
+                string[] nameAndText =  wholeCell.Split(new []{':'}, 2);
+                if (nameAndText.Length != 2) throw new Exception($"Speech-> cant split cell: {wholeCell}");
+
+                nameCell = nameAndText[0];
+                Text = nameAndText[1];
+            }
 
             foreach (KeyValuePair<string,string> pair in characters)
             {

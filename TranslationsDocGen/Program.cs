@@ -20,11 +20,11 @@ namespace TranslationsDocGen
             var service = GoogleSheetsHelper.Service();
             
             
-            int startId = 230234;
-            string dialogKey = "dialog_shipment_extension3";
+            int startId = 230381;
+            string dialogKey = "dialog_blooming_cave7";
             
 
-            string spredsheetId = "1qdG06KX6-60yJFI-umM9tMvZH7IjvS_Gr2QC0HMPhqw";
+            string spredsheetId = "1KNGKOb25zUfvYDXEsbYyuVfjLIJOrgBy_sP4Leo0kEw";
             string sheetName = "Dialogs";
             
             var characters = new Dictionary<string, string>()
@@ -35,10 +35,14 @@ namespace TranslationsDocGen
                 {"Марит", "indian_customer_character1"},
                 {"Митрофан", "russian_customer_character1"},
                 {"Липкий", "pirate_jack_character"},
+                {"Беатрис", "beatrix"},
+                {"Ферн", "fern"},
+                {"Макс", "maks_character"},
             };
-            string bigDialogMarker = "крупно";
+            string bigDialogMarker = "большой";
+            bool isSpeechOnTwoRows = false;
             
-            service.GenerateDialog(spredsheetId, sheetName, startId, dialogKey, characters, bigDialogMarker);
+            service.GenerateDialog(spredsheetId, sheetName, startId, dialogKey, characters, bigDialogMarker, isSpeechOnTwoRows);
         }
 
         
@@ -49,9 +53,9 @@ namespace TranslationsDocGen
 
             using (new FileLogListener("log"))
             {
-                string translateDocId = "1dLoAum5bUYS6IpdoAqCwEH8pzd1UOzyHCLH8LLuVZbg";
-
-                string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8"; // test
+//                string translateDocId = "1qdG06KX6-60yJFI-umM9tMvZH7IjvS_Gr2QC0HMPhqw";
+//
+//                string testId = "1W3xvpot628w5JmsW4ZHJ8Z3NVYflFIBq1VHrUjX1II8"; // test
 //                string test2Id = "1pB3DCuq2T6tuZB1TArYfjgzhTtgO6Z2sipxvzfIYfN8"; // test copy
 
             string royalItemsId = "1Cfb3MR8pmKBlIi4rSwhkY157A9E9ttqAKgp0vFgh958";    // FamilyNest2 Localization items
@@ -60,20 +64,23 @@ namespace TranslationsDocGen
 //            string farmdaysItemsId = "1QwMS32adbemjNFptjGO9hJa6SQf5D_nVKPDC9PDYJTQ";    // Farmdays items copy
 //            string farmdaysTextId = "119Ep1_oLQRJz7akYR6YES43-fzfkHYswumJvRIJ2xh4";    // Farmdays texts copy
 
-//            string mainItemsJapanId = "1utJVFhmdUM9DL9IgsGe6PkMFBBBPlLe0x9EVlpZYN10";    // Japan Items Localization
-//            string mainTextJapanId = "1v6NVFcHYn1mf9SmwpsojOYKlVnyC4R30o1YfeQJGYzo";    // Japan Items Localization
+//            string mainItemsJapanId = "1-7Plj2vXP2ZLQt1zSiTM3n_3rapR4ZF_tJYSQUFqv6s";    // Japan Items Localization
+//            string mainTextJapanId = "1ELMCFvAHGYZ5E_tjuWBbbYBTYxlNng3fn8PwmWvt6qo";    // Japan Items Localization
 
 
 //            service.UploadMissingLocaleSpreadsheet(testId, locale: "ja_JP", defaultLocale: "ru_RU", newSpreadsheetTitle: "ApiTestCopy2"); 
-            service.UploadMissingLocaleSpreadsheet(royalItemsId, "ja_JP", "en_US", "FN2_Items_2019_02_13"); 
-            service.UploadMissingLocaleSpreadsheet(royalTextId, "ja_JP", "en_US", "FN2_Text_2019_02_13"); 
+            service.UploadMissingLocaleSpreadsheet(royalItemsId, "ja_JP", "en_US", "FN2_Items_2019_05_16"); 
+            service.UploadMissingLocaleSpreadsheet(royalTextId, "ja_JP", "en_US", "FN2_Text_2019_05_16"); 
 
 
-//                var spreadsheetFrom = service.DownloadSpredsheet(translateDocId);
-//                var spreadsheetTo = service.DownloadSpredsheet(royalTextId);
-//
-//                var requests =
-//                    SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "en_US", true);
+//            var spreadsheetFrom = service.DownloadSpredsheet(translateDocId);
+//            var spreadsheetTo = service.DownloadSpredsheet(royalTextId);
+////
+//                var requests = new List<Request>();
+//                requests.AddRange(SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ru_RU", true));
+//                requests.AddRange(SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "lv_LV", true));
+//                requests.AddRange(SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "en_US", true));
+//                requests.AddRange(SocialInfiniteSheetsHelper.CopySpreadsheetLocale(spreadsheetFrom, spreadsheetTo, "ja_JP", true));
 //                spreadsheetTo.BatchUpdate(requests);
 
 //            var sheetFrom = spreadsheetFrom.SheetByTitle("Quests")[0];
